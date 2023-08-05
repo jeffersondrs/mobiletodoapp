@@ -7,8 +7,8 @@ interface TodoItem {
   title: string;
   textContent: string;
   completed: boolean;
-  optionalDate?: string; // Novo campo opcional para a data
-  optionalTime?: string; // Novo campo opcional para o horário
+  optionalDate?: string;
+  optionalTime?: string;
 }
 
 interface TextState {
@@ -28,8 +28,8 @@ const textSlice = createSlice({
       action: PayloadAction<{
         title: string;
         textContent: string;
-        optionalDate?: string; // Novo campo opcional para a data
-        optionalTime?: string; // Novo campo opcional para o horário
+        optionalDate?: string;
+        optionalTime?: string;
       }>
     ) => {
       const newTodo: TodoItem = {
@@ -37,10 +37,28 @@ const textSlice = createSlice({
         title: action.payload.title,
         textContent: action.payload.textContent,
         completed: false,
-        optionalDate: action.payload.optionalDate, // Novos campos do payload
-        optionalTime: action.payload.optionalTime, // Novos campos do payload
+        optionalDate: action.payload.optionalDate,
+        optionalTime: action.payload.optionalTime,
       };
       state.todos.push(newTodo);
+    },
+    editTodo: (
+      state,
+      action: PayloadAction<{
+        id: string;
+        title: string;
+        textContent: string;
+        optionalDate?: string;
+        optionalTime?: string;
+      }>
+    ) => {
+      const todo = state.todos.find((item) => item.id === action.payload.id);
+      if (todo) {
+        todo.title = action.payload.title;
+        todo.textContent = action.payload.textContent;
+        todo.optionalDate = action.payload.optionalDate;
+        todo.optionalTime = action.payload.optionalTime;
+      }
     },
     toggleTodo: (state, action: PayloadAction<string>) => {
       const todo = state.todos.find((item) => item.id === action.payload);
@@ -54,5 +72,5 @@ const textSlice = createSlice({
   },
 });
 
-export const { addTodo, toggleTodo, deleteTodo } = textSlice.actions;
+export const { addTodo, toggleTodo, deleteTodo, editTodo } = textSlice.actions;
 export const textReducer = textSlice.reducer;

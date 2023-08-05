@@ -1,14 +1,30 @@
 import { StatusBar } from "expo-status-bar";
 import { Platform, StyleSheet } from "react-native";
 import { Text, View } from "react-native";
+import { TextInput } from "react-native-gesture-handler";
+import InputText from "../components/atoms/InputText";
+import { useState } from "react";
 
 export default function ModalScreen() {
+  const [newTodoTitle, setNewTodoTitle] = useState("");
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Modal</Text>
-
-      {/* Use a light status bar on iOS to account for the black space above the modal */}
       <StatusBar style={Platform.OS === "ios" ? "light" : "auto"} />
+      <View
+        style={{
+          width: "100%",
+          flexDirection: "column",
+          gap: 5,
+        }}
+      >
+        <InputText
+          newTodoTitle={newTodoTitle}
+          setNewTodoTitle={setNewTodoTitle}
+          placeholder="Titulo"
+          type="text"
+        />
+      </View>
     </View>
   );
 }
