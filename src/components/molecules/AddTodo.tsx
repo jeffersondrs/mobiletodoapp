@@ -23,6 +23,7 @@ export default function AddTodo() {
       style={{
         flex: 1,
         justifyContent: "flex-start",
+        width: "100%",
         flexDirection: "column",
         gap: 5,
       }}

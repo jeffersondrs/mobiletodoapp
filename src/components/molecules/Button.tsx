@@ -1,5 +1,6 @@
 import { Pressable } from "react-native";
 import ButtonText from "../atoms/ButtonText";
+import { useFonts, Poppins_500Medium } from "@expo-google-fonts/poppins";
 
 interface ButtonProps {
   type?: "add" | "edit" | "delete" | "update";
@@ -7,6 +8,14 @@ interface ButtonProps {
 }
 
 export default function Button({ type, onPress }: ButtonProps) {
+  let [fontsLoaded] = useFonts({
+    Poppins_500Medium,
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
   const buttonStyle = {
     backgroundColor:
       type === "add"
@@ -41,7 +50,7 @@ export default function Button({ type, onPress }: ButtonProps) {
         style={{
           color: "white",
           fontSize: 14,
-          fontWeight: 500,
+          fontFamily: "Poppins_500Medium",
           textTransform: "uppercase",
           textAlign: "center",
         }}

@@ -7,6 +7,11 @@ import { useLocalSearchParams } from "expo-router";
 import Button from "../../components/molecules/Button";
 import { useRouter } from "expo-router";
 import Toast from "react-native-toast-message";
+import {
+  useFonts,
+  Poppins_400Regular,
+  Poppins_700Bold,
+} from "@expo-google-fonts/poppins";
 
 export default function EditTodo() {
   const { id } = useLocalSearchParams<{ id: string }>();
@@ -15,6 +20,11 @@ export default function EditTodo() {
   const router = useRouter();
   const [title, setTitle] = useState(todo?.title || "");
   const [textContent, setTextContent] = useState(todo?.textContent || "");
+
+  let [fontsLoaded] = useFonts({
+    Poppins_400Regular,
+    Poppins_700Bold,
+  });
 
   const dispatch = useDispatch();
 
@@ -77,7 +87,7 @@ export default function EditTodo() {
           alignItems: "center",
           flexDirection: "column",
           gap: 5,
-          width: Dimensions.get("screen").width,
+          width: "100%",
           backgroundColor: "white",
           paddingVertical: 10,
         }}
@@ -106,7 +116,7 @@ export default function EditTodo() {
             <Text
               style={{
                 fontSize: 15,
-                fontWeight: "bold",
+                fontFamily: "Poppins_400Regular",
                 marginLeft: 5,
               }}
             >
@@ -117,13 +127,14 @@ export default function EditTodo() {
                 paddingHorizontal: 10,
                 paddingVertical: 5,
                 width: "100%",
-                height: 50,
+                height: 40,
                 backgroundColor: "white",
                 textAlignVertical: "center",
                 borderWidth: 1,
                 borderColor: "#00000039",
                 borderRadius: 10,
-                fontSize: 20,
+                fontSize: 18,
+                fontFamily: "Poppins_400Regular",
               }}
               multiline
               value={title}
@@ -133,7 +144,7 @@ export default function EditTodo() {
           <Text
             style={{
               fontSize: 15,
-              fontWeight: "bold",
+              fontFamily: "Poppins_400Regular",
               marginLeft: 5,
             }}
           >
@@ -151,6 +162,7 @@ export default function EditTodo() {
               backgroundColor: "white",
               textAlignVertical: "top",
               fontSize: 18,
+              fontFamily: "Poppins_400Regular",
             }}
             multiline
             value={textContent}

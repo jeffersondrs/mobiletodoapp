@@ -1,4 +1,4 @@
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import TextContent from "../atoms/TextContent";
 import TextTitle from "../atoms/TextTitle";
 import { Link } from "expo-router";
@@ -23,16 +23,16 @@ export default function CardList({ item }: CardListProps) {
       <View
         style={{
           flexDirection: "column",
-          alignItems: "flex-start",
+          alignItems: "center",
           justifyContent: "center",
           flex: 1,
-          width: 180,
+          width: 200,
           height: 200,
           backgroundColor: "white",
           margin: 5,
           borderRadius: 5,
           paddingHorizontal: 10,
-          paddingVertical: 5,
+          paddingVertical: 10,
         }}
       >
         <TextTitle item={item} />

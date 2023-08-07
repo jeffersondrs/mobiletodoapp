@@ -11,6 +11,20 @@ export default function LayoutStack() {
           title: "Editar tarefa",
         }}
       />
+      <Stack.Screen
+        name="text"
+        options={{
+          headerShown: true,
+          title: "Criar Texto",
+        }}
+      />
+      <Stack.Screen
+        name="list"
+        options={{
+          headerShown: true,
+          title: "Criar Lista",
+        }}
+      />
     </Stack>
   );
 }
