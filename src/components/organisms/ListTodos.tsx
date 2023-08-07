@@ -9,7 +9,9 @@ export default function ListTodos() {
   const todos = useSelector((state: RootState) => state.text.todos);
 
   return (
-    <View style={{ height:  "100%", width: Dimensions.get("screen").width }}>
+    <View
+      style={{ height: "100%", width: Dimensions.get("screen").width, flex: 1 }}
+    >
       <FlashList
         data={todos}
         keyExtractor={(item) => item.id}

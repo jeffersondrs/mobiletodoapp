@@ -32,6 +32,8 @@ yarn-error.*
 .env*.local
 .env
 
+eas.json
+
 tarefas-certas-5d4d25e54bf8.json
 
 # typescript

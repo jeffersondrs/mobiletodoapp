@@ -16,7 +16,17 @@ export default function CardList({ item }: CardListProps) {
   return (
     <Link
       style={{
-        marginVertical: 5,
+        marginVertical: 3,
+        shadowColor: "#000",
+        shadowOffset: {
+          width: 0,
+          height: 2,
+        },
+        borderWidth: 0.5,
+        borderColor: "rgba(0,0,0,0.1)",
+        borderRadius: 5,
+        shadowOpacity: 0.2,
+        shadowRadius: 1.41,
       }}
       href={`/(stack)/${item.id}`}
     >
@@ -26,10 +36,10 @@ export default function CardList({ item }: CardListProps) {
           alignItems: "center",
           justifyContent: "center",
           flex: 1,
-          width: 200,
+          width: 195,
           height: 200,
           backgroundColor: "white",
-          margin: 5,
+    
           borderRadius: 5,
           paddingHorizontal: 10,
           paddingVertical: 10,
