@@ -32,6 +32,8 @@ yarn-error.*
 .env*.local
 .env
 
+tarefas-certas-5d4d25e54bf8.json
+
 # typescript
 *.tsbuildinfo
 
