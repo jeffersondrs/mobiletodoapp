@@ -2,6 +2,7 @@ import { View } from "react-native";
 import TextContent from "../atoms/TextContent";
 import TextTitle from "../atoms/TextTitle";
 import { Link } from "expo-router";
+import { AntDesign } from "@expo/vector-icons";
 
 interface CardListProps {
   item: {
@@ -14,40 +15,36 @@ interface CardListProps {
 
 export default function CardList({ item }: CardListProps) {
   return (
-    <Link
+    <View
       style={{
-        marginVertical: 3,
-        shadowColor: "#000",
-        shadowOffset: {
-          width: 0,
-          height: 2,
-        },
-        borderWidth: 0.5,
-        borderColor: "rgba(0,0,0,0.1)",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        flex: 1,
+        backgroundColor: "white",
+        width: 195,
+        height: 195,
         borderRadius: 5,
-        shadowOpacity: 0.2,
-        shadowRadius: 1.41,
+        paddingHorizontal: 10,
+        paddingVertical: 10,
+        marginBottom: 5,
       }}
-      href={`/(stack)/${item.id}`}
     >
-      <View
+      <TextTitle item={item} />
+      <TextContent item={item} />
+      <Link
         style={{
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          flex: 1,
-          width: 195,
-          height: 200,
-          backgroundColor: "white",
-    
+          position: "absolute",
+          width: 180,
+          height: 180,
+          opacity: 0.4,
+          padding: 10,
           borderRadius: 5,
-          paddingHorizontal: 10,
-          paddingVertical: 10,
         }}
+        href={`/(stack)/${item.id}`}
       >
-        <TextTitle item={item} />
-        <TextContent item={item} />
-      </View>
-    </Link>
+        <AntDesign name="edit" size={24} color="black" />
+      </Link>
+    </View>
   );
 }
