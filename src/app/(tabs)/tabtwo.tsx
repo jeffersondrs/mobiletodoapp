@@ -27,66 +27,70 @@ export default function TabBarTwo() {
         gap: 10,
       }}
     >
-      <Link
-        href={"/(stack)/list"}
+      <View
         style={{
-          backgroundColor: "#b83cfa",
-          borderRadius: 10,
+          padding: 15,
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "center",
+          alignItems: "center",
+          minWidth: 250,
+          backgroundColor: "#0fa0fa",
         }}
       >
-        <View
+        <Text
           style={{
-            paddingHorizontal: 15,
-            paddingVertical: 15,
-            display: "flex",
-            flexDirection: "row",
-            gap: 15,
-            justifyContent: "center",
-            alignItems: "center",
-            minWidth: 230,
+            color: "#fff",
+            fontFamily: "Poppins_700Bold",
           }}
         >
-          <Text
-            style={{
-              color: "#fff",
-              fontFamily: "Poppins_700Bold",
-            }}
-          >
-            Criar lista com titulo.
-          </Text>
+          Criar lista com titulo.
+        </Text>
+        <Link
+          href={"/(list)/list"}
+          style={{
+            position: "absolute",
+            width: "100%",
+            height: "100%",
+            paddingVertical: 10,
+            paddingHorizontal: 10,
+          }}
+        >
           <AntDesign name="checksquareo" size={24} color="white" />
-        </View>
-      </Link>
-      <Link
-        href={"/(stack)/text"}
+        </Link>
+      </View>
+      <View
         style={{
-          backgroundColor: "#0190ea",
-          borderRadius: 10,
+          padding: 15,
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "center",
+          alignItems: "center",
+          minWidth: 250,
+          backgroundColor: "#037dc8",
         }}
       >
-        <View
+        <Text
           style={{
-            paddingHorizontal: 15,
-            paddingVertical: 15,
-            display: "flex",
-            flexDirection: "row",
-            gap: 15,
-            justifyContent: "center",
-            alignItems: "center",
-            minWidth: 230,
+            color: "#fff",
+            fontFamily: "Poppins_700Bold",
           }}
         >
-          <Text
-            style={{
-              color: "#fff",
-              fontFamily: "Poppins_700Bold",
-            }}
-          >
-            Criar texto com titulo.
-          </Text>
+          Criar texto com titulo.
+        </Text>
+        <Link
+          href={"/(text)/text"}
+          style={{
+            position: "absolute",
+            width: "100%",
+            height: "100%",
+            paddingVertical: 10,
+            paddingHorizontal: 10,
+          }}
+        >
           <AntDesign name="edit" size={24} color="white" />
-        </View>
-      </Link>
+        </Link>
+      </View>
     </View>
   );
 }

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SafeAreaView, Text, TextInput, View, Dimensions } from "react-native";
+import { SafeAreaView, Text, TextInput, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { editTodo, deleteTodo } from "../../store/textSlice";
 import { RootState } from "../../store/store";

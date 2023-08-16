@@ -1,5 +1,5 @@
 import { Link } from "expo-router";
-import { View, Text, StyleSheet, Dimensions, Pressable } from "react-native";
+import { View, Text, ScrollView, Dimensions, Pressable } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import {
   useFonts,
@@ -18,22 +18,11 @@ export default function Config() {
   }
 
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "flex-start",
-        alignItems: "center",
-        flexDirection: "column",
-        gap: 3,
-        width: Dimensions.get("screen").width,
-        backgroundColor: "white",
-        paddingVertical: 5,
-        paddingHorizontal: 3,
-      }}
-    >
+    <ScrollView>
       <Pressable
         style={{
           width: "100%",
+          marginBottom: 5,
         }}
       >
         <Text
@@ -62,6 +51,7 @@ export default function Config() {
       <Pressable
         style={{
           width: "100%",
+          marginBottom: 5,
         }}
       >
         <Text
@@ -90,6 +80,7 @@ export default function Config() {
       <Pressable
         style={{
           width: "100%",
+          marginBottom: 5,
         }}
       >
         <Text
@@ -118,6 +109,7 @@ export default function Config() {
       <Pressable
         style={{
           width: "100%",
+          marginBottom: 5,
         }}
       >
         <Text
@@ -146,6 +138,7 @@ export default function Config() {
       <Pressable
         style={{
           width: "100%",
+          marginBottom: 5,
         }}
       >
         <Text
@@ -174,6 +167,7 @@ export default function Config() {
       <Pressable
         style={{
           width: "100%",
+          marginBottom: 5,
         }}
       >
         <Text
@@ -202,6 +196,7 @@ export default function Config() {
       <Pressable
         style={{
           width: "100%",
+          marginBottom: 5,
         }}
       >
         <Text
@@ -230,6 +225,7 @@ export default function Config() {
       <Pressable
         style={{
           width: "100%",
+          marginBottom: 5,
         }}
       >
         <Text
@@ -258,6 +254,7 @@ export default function Config() {
       <Pressable
         style={{
           width: "100%",
+          marginBottom: 5,
         }}
       >
         <Text
@@ -286,6 +283,7 @@ export default function Config() {
       <Pressable
         style={{
           width: "100%",
+          marginBottom: 5,
         }}
       >
         <Text
@@ -314,6 +312,7 @@ export default function Config() {
       <Pressable
         style={{
           width: "100%",
+          marginBottom: 5,
         }}
       >
         <Text
@@ -342,6 +341,7 @@ export default function Config() {
       <Pressable
         style={{
           width: "100%",
+          marginBottom: 5,
         }}
       >
         <Text
@@ -370,6 +370,7 @@ export default function Config() {
       <Pressable
         style={{
           width: "100%",
+          marginBottom: 5,
         }}
       >
         <Text
@@ -395,6 +396,6 @@ export default function Config() {
           In soon Donate
         </Text>
       </Pressable>
-    </View>
+    </ScrollView>
   );
 }

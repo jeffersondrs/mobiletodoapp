@@ -41,7 +41,7 @@ export default function CardList({ item }: CardListProps) {
           padding: 10,
           borderRadius: 5,
         }}
-        href={`/(stack)/${item.id}`}
+        href={`/(text)/${item.id}`}
       >
         <AntDesign name="edit" size={24} color="black" />
       </Link>
