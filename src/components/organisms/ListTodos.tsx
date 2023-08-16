@@ -3,16 +3,11 @@ import React from "react";
 import { View, Dimensions, Text } from "react-native";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
-import CardList from "../molecules/CardList";
+import CardText from "../molecules/CardText";
 
 export default function ListTodos() {
   const todos = useSelector((state: RootState) => state.text.todos);
-  const item = {
-    id: "string",
-    title: "string",
-    textContent: "string",
-    completed: true,
-  };
+  
 
   return (
     <View
@@ -23,7 +18,7 @@ export default function ListTodos() {
         keyExtractor={(item) => item.id}
         numColumns={2}
         estimatedItemSize={200}
-        renderItem={({ item }) => <CardList item={item} />}
+        renderItem={({ item }) => <CardText item={item} />}
         
       />
     </View>

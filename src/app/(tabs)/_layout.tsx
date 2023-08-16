@@ -8,6 +8,7 @@ export default function TabLayout() {
         name="index"
         options={{
           title: "Tarefas",
+          headerTitleAlign: "center",
           tabBarIcon: ({ color, size }) => (
             <FontAwesome name="list-alt" color={color} size={size} />
           ),
@@ -16,9 +17,10 @@ export default function TabLayout() {
       <Tabs.Screen
         name="tabtwo"
         options={{
-          title: "Adicionar",
+          title: "Listas",
+          headerTitleAlign: "center",
           tabBarIcon: ({ color, size }) => (
-            <FontAwesome name="plus" color={color} size={size} />
+            <FontAwesome name="list" color={color} size={size} />
           ),
         }}
       />
@@ -26,7 +28,7 @@ export default function TabLayout() {
         name="config"
         options={{
           title: "Configurações",
-          
+          headerTitleAlign: "center",
           tabBarIcon: ({ color, size }) => (
             <FontAwesome name="gear" color={color} size={size} />
           ),

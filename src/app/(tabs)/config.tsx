@@ -27,13 +27,13 @@ export default function Config() {
       >
         <Text
           style={{
-            color: "white",
+            color: "#000",
             fontSize: 18,
             fontFamily: "Poppins_700Bold",
             textAlign: "left",
             paddingVertical: 15,
             paddingHorizontal: 10,
-            backgroundColor: "#C084FC",
+            backgroundColor: "#fff",
             borderRadius: 2,
             shadowColor: "#000",
             shadowOffset: {
@@ -56,13 +56,13 @@ export default function Config() {
       >
         <Text
           style={{
-            color: "white",
+            color: "#000",
             fontSize: 18,
             fontFamily: "Poppins_700Bold",
             textAlign: "left",
             paddingVertical: 15,
             paddingHorizontal: 10,
-            backgroundColor: "#C084FC",
+            backgroundColor: "#fff",
             borderRadius: 2,
             shadowColor: "#000",
             shadowOffset: {
@@ -85,13 +85,13 @@ export default function Config() {
       >
         <Text
           style={{
-            color: "white",
+            color: "#000",
             fontSize: 18,
             fontFamily: "Poppins_700Bold",
             textAlign: "left",
             paddingVertical: 15,
             paddingHorizontal: 10,
-            backgroundColor: "#C084FC",
+            backgroundColor: "#fff",
             borderRadius: 2,
             shadowColor: "#000",
             shadowOffset: {
@@ -114,13 +114,13 @@ export default function Config() {
       >
         <Text
           style={{
-            color: "white",
+            color: "#000",
             fontSize: 18,
             fontFamily: "Poppins_700Bold",
             textAlign: "left",
             paddingVertical: 15,
             paddingHorizontal: 10,
-            backgroundColor: "#C084FC",
+            backgroundColor: "#fff",
             borderRadius: 2,
             shadowColor: "#000",
             shadowOffset: {
@@ -143,13 +143,13 @@ export default function Config() {
       >
         <Text
           style={{
-            color: "white",
+            color: "#000",
             fontSize: 18,
             fontFamily: "Poppins_700Bold",
             textAlign: "left",
             paddingVertical: 15,
             paddingHorizontal: 10,
-            backgroundColor: "#C084FC",
+            backgroundColor: "#fff",
             borderRadius: 2,
             shadowColor: "#000",
             shadowOffset: {
@@ -172,13 +172,13 @@ export default function Config() {
       >
         <Text
           style={{
-            color: "white",
+            color: "#000",
             fontSize: 18,
             fontFamily: "Poppins_700Bold",
             textAlign: "left",
             paddingVertical: 15,
             paddingHorizontal: 10,
-            backgroundColor: "#C084FC",
+            backgroundColor: "#fff",
             borderRadius: 2,
             shadowColor: "#000",
             shadowOffset: {
@@ -201,13 +201,13 @@ export default function Config() {
       >
         <Text
           style={{
-            color: "white",
+            color: "#000",
             fontSize: 18,
             fontFamily: "Poppins_700Bold",
             textAlign: "left",
             paddingVertical: 15,
             paddingHorizontal: 10,
-            backgroundColor: "#C084FC",
+            backgroundColor: "#fff",
             borderRadius: 2,
             shadowColor: "#000",
             shadowOffset: {
@@ -230,13 +230,13 @@ export default function Config() {
       >
         <Text
           style={{
-            color: "white",
+            color: "#000",
             fontSize: 18,
             fontFamily: "Poppins_700Bold",
             textAlign: "left",
             paddingVertical: 15,
             paddingHorizontal: 10,
-            backgroundColor: "#C084FC",
+            backgroundColor: "#fff",
             borderRadius: 2,
             shadowColor: "#000",
             shadowOffset: {
@@ -259,13 +259,13 @@ export default function Config() {
       >
         <Text
           style={{
-            color: "white",
+            color: "#000",
             fontSize: 18,
             fontFamily: "Poppins_700Bold",
             textAlign: "left",
             paddingVertical: 15,
             paddingHorizontal: 10,
-            backgroundColor: "#C084FC",
+            backgroundColor: "#fff",
             borderRadius: 2,
             shadowColor: "#000",
             shadowOffset: {
@@ -288,13 +288,13 @@ export default function Config() {
       >
         <Text
           style={{
-            color: "white",
+            color: "#000",
             fontSize: 18,
             fontFamily: "Poppins_700Bold",
             textAlign: "left",
             paddingVertical: 15,
             paddingHorizontal: 10,
-            backgroundColor: "#C084FC",
+            backgroundColor: "#fff",
             borderRadius: 2,
             shadowColor: "#000",
             shadowOffset: {
@@ -317,13 +317,13 @@ export default function Config() {
       >
         <Text
           style={{
-            color: "white",
+            color: "#000",
             fontSize: 18,
             fontFamily: "Poppins_700Bold",
             textAlign: "left",
             paddingVertical: 15,
             paddingHorizontal: 10,
-            backgroundColor: "#C084FC",
+            backgroundColor: "#fff",
             borderRadius: 2,
             shadowColor: "#000",
             shadowOffset: {
@@ -346,13 +346,13 @@ export default function Config() {
       >
         <Text
           style={{
-            color: "white",
+            color: "#000",
             fontSize: 18,
             fontFamily: "Poppins_700Bold",
             textAlign: "left",
             paddingVertical: 15,
             paddingHorizontal: 10,
-            backgroundColor: "#C084FC",
+            backgroundColor: "#fff",
             borderRadius: 2,
             shadowColor: "#000",
             shadowOffset: {
@@ -375,13 +375,13 @@ export default function Config() {
       >
         <Text
           style={{
-            color: "white",
+            color: "#000",
             fontSize: 18,
             fontFamily: "Poppins_700Bold",
             textAlign: "left",
             paddingVertical: 15,
             paddingHorizontal: 10,
-            backgroundColor: "#C084FC",
+            backgroundColor: "#fff",
             borderRadius: 2,
             shadowColor: "#000",
             shadowOffset: {
