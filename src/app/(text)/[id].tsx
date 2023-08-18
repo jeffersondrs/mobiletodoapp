@@ -7,6 +7,8 @@ import { useLocalSearchParams } from "expo-router";
 import Button from "../../components/molecules/Button";
 import { useRouter } from "expo-router";
 import Toast from "react-native-toast-message";
+import InputText from "../../components/atoms/InputText";
+
 import {
   useFonts,
   Poppins_400Regular,
@@ -62,6 +64,7 @@ export default function EditTodo() {
       autoHide: true,
       topOffset: 30,
       bottomOffset: 40,
+      position: "bottom",
     });
   };
 
@@ -74,6 +77,7 @@ export default function EditTodo() {
       autoHide: true,
       topOffset: 30,
       bottomOffset: 40,
+      position: "bottom",
     });
   };
 
@@ -118,80 +122,31 @@ export default function EditTodo() {
             width: "100%",
             backgroundColor: "white",
             padding: 5,
+            height: "100%",
           }}
         >
-          <View
-            style={{
-              width: "100%",
-              flexDirection: "column",
-              gap: 5,
-              justifyContent: "center",
-              alignItems: "flex-start",
-            }}
-          >
-            <Text
-              style={{
-                fontSize: 15,
-                fontFamily: "Poppins_400Regular",
-                marginLeft: 5,
-              }}
-            >
-              Editar título
-            </Text>
-            <TextInput
-              style={{
-                paddingHorizontal: 10,
-                paddingVertical: 5,
-                width: "100%",
-                height: 40,
-                backgroundColor: "white",
-                textAlignVertical: "center",
-                borderWidth: 1,
-                borderColor: "#00000039",
-                borderRadius: 10,
-                fontSize: 18,
-                fontFamily: "Poppins_400Regular",
-              }}
-              multiline
-              value={title}
-              onChangeText={setTitle}
-            />
-          </View>
-          <Text
-            style={{
-              fontSize: 15,
-              fontFamily: "Poppins_400Regular",
-              marginLeft: 5,
-            }}
-          >
-            Editar conteúdo!
-          </Text>
+          <InputText
+            newTodoTitle={title}
+            setNewTodoTitle={(title) => setTitle(title)}
+            placeholder="Título"
+            type="text"
+          />
+
           <Toast />
-          <TextInput
-            style={{
-              width: "100%",
-              height: "85%",
-              padding: 10,
-              borderWidth: 1,
-              borderColor: "#00000039",
-              borderRadius: 10,
-              backgroundColor: "white",
-              textAlignVertical: "top",
-              fontSize: 18,
-              fontFamily: "Poppins_400Regular",
-            }}
-            multiline
-            value={textContent}
-            onChangeText={setTextContent}
+          <InputText
+            newTodoTitle={textContent}
+            setNewTodoTitle={(textContent) => setTextContent(textContent)}
+            placeholder="Escreva aqui"
+            type="textarea"
           />
         </View>
         <View
           style={{
             flexDirection: "row",
             width: "100%",
-            backgroundColor: "white",
             alignItems: "center",
             justifyContent: "space-evenly",
+            height: 70,
           }}
         >
           {title !== "" &&

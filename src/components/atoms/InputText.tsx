@@ -20,14 +20,14 @@ export default function InputText({
     return null;
   }
 
-  const maxLength = type === "textarea" ? 1000 : 50;
+  const maxLength = type === "textarea" ? 1200 : 50;
   const characterCount = newTodoTitle.length;
 
   return (
     <View
       style={{
         width: "100%",
-        height: type === "textarea" ? "80%" : 50,
+        height: type === "textarea" ? "90%" : 50,
         borderRadius: 5,
         backgroundColor: "#fff",
         shadowColor: "0px 0px 2px 0px rgba(0, 0, 0, 0.301)",
@@ -46,7 +46,7 @@ export default function InputText({
       <TextInput
         style={{
           padding: 5,
-          fontSize: 16,
+          fontSize: 17,
           fontFamily: "Poppins_400Regular",
           minHeight: typeInput,
           color: "#000",
@@ -54,6 +54,7 @@ export default function InputText({
           textAlign: "left",
           paddingRight: 40,
           height: "100%",
+          paddingBottom: type === "textarea" ? 30 : 0,
         }}
         value={newTodoTitle}
         onChangeText={(text) => setNewTodoTitle(text)}

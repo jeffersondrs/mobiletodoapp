@@ -33,6 +33,12 @@ export default function EditList() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const lists = useSelector((state: RootState) => state.list.lists);
   const list = lists.find((list) => list.id === id);
+
+  const incompleteTodos = list?.listItems.filter((todo) => !todo.completed);
+  const completeTodos = list?.listItems.filter((todo) => todo.completed);
+
+  const reorderedTodos = incompleteTodos?.concat(completeTodos!);
+
   const [title, setTitle] = useState(list?.title || "");
   const [textContent, setTextContent] = useState("");
   const [modalVisible, setModalVisible] = useState(false);
@@ -185,7 +191,7 @@ export default function EditList() {
           paddingVertical: 5,
           paddingHorizontal: 10,
           borderBottomWidth: 1,
-          borderBottomColor: "#000000",
+          borderBottomColor: "#2a96da",
         }}
       >
         <Text
@@ -195,6 +201,7 @@ export default function EditList() {
             padding: 10,
             width: "60%",
           }}
+          numberOfLines={3}
         >
           {list?.title}
         </Text>
@@ -239,7 +246,7 @@ export default function EditList() {
             justifyContent: "center",
             alignItems: "center",
             borderBottomWidth: 1,
-            borderBottomColor: "#000000",
+            borderBottomColor: "#2a96da",
             paddingVertical: 5,
           }}
         >
@@ -259,7 +266,7 @@ export default function EditList() {
           />
           <Pressable
             style={{
-              backgroundColor: "#000000",
+              backgroundColor: "#2a96da",
               paddingHorizontal: 5,
               paddingVertical: 5,
               borderRadius: 5,
@@ -272,7 +279,7 @@ export default function EditList() {
         </View>
         {list?.listItems.length ? (
           <FlashList
-            data={list?.listItems}
+            data={reorderedTodos}
             estimatedItemSize={100}
             renderItem={({ item }) => (
               <View
@@ -285,12 +292,12 @@ export default function EditList() {
                   paddingHorizontal: 10,
                   paddingVertical: 10,
                   borderBottomWidth: 1,
-                  borderBottomColor: "#000000",
+                  borderBottomColor: "#2a96da",
                 }}
               >
                 <Pressable
                   style={{
-                    backgroundColor: item.completed ? "#fc3b7b18" : "#ffffff",
+                    backgroundColor: item.completed ? "#3bfc4117" : "#ffffff",
                     width: "80%",
                     height: "100%",
                     paddingHorizontal: 10,

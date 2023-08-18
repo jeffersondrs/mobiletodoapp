@@ -9,6 +9,7 @@ interface ListItem {
 interface ListObject {
   id: string;
   title: string;
+  completed: boolean;
   listItems: ListItem[];
 }
 
@@ -29,6 +30,7 @@ const listSlice = createSlice({
         id: Date.now().toString(),
         title: action.payload.title,
         listItems: [],
+        completed: false,
       };
       state.lists.push(newList);
     },
@@ -44,6 +46,12 @@ const listSlice = createSlice({
       );
       if (index !== -1) {
         state.lists.splice(index, 1);
+      }
+    },
+    toggleList: (state, action: PayloadAction<{ id: string }>) => {
+      const list = state.lists.find((item) => item.id === action.payload.id);
+      if (list) {
+        list.completed = !list.completed;
       }
     },
     addListItem: (
@@ -123,6 +131,7 @@ export const {
   toggleListItem,
   deleteListItem,
   resetList,
+  toggleList,
 } = listSlice.actions;
 
 export const listReducer = listSlice.reducer;
@@ -142,22 +151,34 @@ export const selectListItem =
       ?.listItems.find((item) => item.id === itemId);
 
 export const selectListTitle = (id: string) => (state: { list: Lists }) =>
-    state.list.lists.find((item) => item.id === id)?.title;
+  state.list.lists.find((item) => item.id === id)?.title;
 
 export const selectListLength = (id: string) => (state: { list: Lists }) =>
-    state.list.lists.find((item) => item.id === id)?.listItems.length;
+  state.list.lists.find((item) => item.id === id)?.listItems.length;
 
-export const selectCompletedListItems = (id: string) => (state: { list: Lists }) =>
-    state.list.lists.find((item) => item.id === id)?.listItems.filter(item => item.completed);
+export const selectCompletedListItems =
+  (id: string) => (state: { list: Lists }) =>
+    state.list.lists
+      .find((item) => item.id === id)
+      ?.listItems.filter((item) => item.completed);
 
-export const selectCompletedListItemsLength = (id: string) => (state: { list: Lists }) =>
-    state.list.lists.find((item) => item.id === id)?.listItems.filter(item => item.completed).length;
+export const selectCompletedListItemsLength =
+  (id: string) => (state: { list: Lists }) =>
+    state.list.lists
+      .find((item) => item.id === id)
+      ?.listItems.filter((item) => item.completed).length;
 
-export const selectUncompletedListItems = (id: string) => (state: { list: Lists }) =>
-    state.list.lists.find((item) => item.id === id)?.listItems.filter(item => !item.completed);
+export const selectUncompletedListItems =
+  (id: string) => (state: { list: Lists }) =>
+    state.list.lists
+      .find((item) => item.id === id)
+      ?.listItems.filter((item) => !item.completed);
 
-export const selectUncompletedListItemsLength = (id: string) => (state: { list: Lists }) =>
-    state.list.lists.find((item) => item.id === id)?.listItems.filter(item => !item.completed).length;
+export const selectUncompletedListItemsLength =
+  (id: string) => (state: { list: Lists }) =>
+    state.list.lists
+      .find((item) => item.id === id)
+      ?.listItems.filter((item) => !item.completed).length;
 
 export const selectAllListItems = (state: { list: Lists }) =>
-    state.list.lists.map((item) => item.listItems).flat();
+  state.list.lists.map((item) => item.listItems).flat();

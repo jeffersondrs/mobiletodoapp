@@ -1,10 +1,6 @@
-import { View, Text, StatusBar, SafeAreaView} from "react-native";
-import ListTodoPage from "../../pages/list-todos/page";
+import { SafeAreaView } from "react-native";
+import AddTodo from "../../components/molecules/AddTodo";
 
 export default function TabText() {
-  return(
-    <SafeAreaView style={{ flex: 1 }}>
-      <ListTodoPage />
-    </SafeAreaView>
-  );
+  return <AddTodo />;
 }

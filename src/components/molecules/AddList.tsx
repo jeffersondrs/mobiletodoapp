@@ -16,13 +16,12 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addList } from "../../store/listSlice";
 import { RootState } from "../../store/store";
+import { AntDesign } from "@expo/vector-icons";
 
 export default function TabList() {
   const [modalVisible, setModalVisible] = useState(false);
   const [listName, setListName] = useState("");
   const dispatch = useDispatch();
-
-  const list = useSelector((state: RootState) => state.list.lists);
 
   const createList = () => {
     dispatch(addList({ title: listName }));
@@ -101,11 +100,13 @@ export default function TabList() {
             styles.buttonOpen,
             {
               display: modalVisible ? "none" : "flex",
+              justifyContent: "center",
+              alignItems: "center",
             },
           ]}
           onPress={() => setModalVisible(!modalVisible)}
         >
-          <Text style={styles.textStyle}>Adicionar Lista</Text>
+          <AntDesign name="plus" size={24} color="white" />
         </Pressable>
       </View>
     </View>
@@ -138,8 +139,8 @@ const styles = StyleSheet.create({
   },
   button: {
     borderRadius: 5,
-    padding: 15,
-    width: "80%",
+    padding: 10,
+    width: 100,
     elevation: 2,
   },
   buttonOpen: {

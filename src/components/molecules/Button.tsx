@@ -18,24 +18,6 @@ export default function Button({ type, onPress }: ButtonProps) {
   }
 
   const buttonStyle = {
-    backgroundColor:
-      type === "add"
-        ? "#507edb"
-        : type === "edit"
-        ? "#507edb"
-        : type === "delete"
-        ? "red"
-        : type === "update"
-        ? "orange"
-        : "gray",
-    shadowColor:
-      type === "add"
-        ? "#2200ff"
-        : type === "delete"
-        ? "red"
-        : type === "update"
-        ? "orange"
-        : "gray",
     shadowOffset: {
       width: 17,
       height: 17,
@@ -43,43 +25,53 @@ export default function Button({ type, onPress }: ButtonProps) {
     shadowOpacity: 1,
     shadowRadius: 34,
     elevation: 5,
-
     borderRadius: 5,
   };
 
   return (
-    <Pressable style={buttonStyle} onPress={onPress}>
+    <Pressable
+      onPress={onPress}
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       <ButtonText
         text={
-          type === "add"
-            ? <AntDesign name="plus" size={30} color="#fff" />
-            : type === "edit"
-            ? "Editar tarefa"
-            : type === "delete"
-            ? "Delete tarefa"
-            : type === "update"
-            ? "Atualizar tarefa"
-            : "Botão"
+          type === "add" ? (
+            <AntDesign name="plus" size={30} color="#fff" />
+          ) : type === "edit" ? (
+            <AntDesign name="edit" size={30} color="#fff" />
+          ) : type === "delete" ? (
+            <AntDesign name="delete" size={30} color="#fff" />
+          ) : type === "update" ? (
+            <AntDesign name="check" size={30} color="#fff" />
+          ) : (
+            "Botão"
+          )
         }
-        style={{
-          fontSize: 14,
-          color:
-            type === "add"
-              ? "#eeeeee"
-              : type === "edit"
-              ? "#ffffff"
-              : type === "delete"
-              ? "#fff"
-              : type === "update"
-              ? "#fff"
-              : "#fff",
-          paddingHorizontal: 15,
-          paddingVertical: 15,
-          borderRadius: 5,
-          fontFamily: "Poppins_500Medium",
-          textTransform: "uppercase",
-          textAlign: "center",
-        }}
+        style={[
+          {
+            paddingVertical: 10,
+            paddingHorizontal: 20,
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+            backgroundColor:
+              type === "delete"
+                ? "#ff0000"
+                : type === "update"
+                ? "#4ff69a"
+                : type === "edit"
+                ? "#0202ee"
+                : type === "add"
+                ? "#00ba7c"
+                : "#000000",
+            borderRadius: 5,
+          },
+          buttonStyle,
+        ]}
       />
     </Pressable>
   );

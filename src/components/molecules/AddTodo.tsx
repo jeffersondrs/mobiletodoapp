@@ -31,13 +31,15 @@ export default function AddTodo() {
   return (
     <View
       style={{
-        flex: 1,
-        justifyContent: "flex-start",
+        justifyContent: "center",
+        display: "flex",
+        alignItems: "center",
+        flexDirection: "column",
         width: "100%",
         height: "100%",
-        flexDirection: "column",
-        padding: 10,
-        backgroundColor: "white",
+        paddingVertical: 30,
+        paddingHorizontal: 5,
+        backgroundColor: "#fff",
       }}
     >
       <Toast />
