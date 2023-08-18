@@ -1,11 +1,10 @@
-import { Link } from "expo-router";
-import { View, Text, ScrollView, Dimensions, Pressable } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { Text, ScrollView, Pressable } from "react-native";
 import {
   useFonts,
   Poppins_400Regular,
   Poppins_700Bold,
 } from "@expo-google-fonts/poppins";
+import * as Animatable from "react-native-animatable";
 
 export default function Config() {
   let [fontsLoaded] = useFonts({

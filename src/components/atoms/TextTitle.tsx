@@ -1,4 +1,4 @@
-import { Text } from "react-native";
+import { Text, TextStyle } from "react-native";
 import { ButtonTextProps } from "../../types/global";
 import {
   useFonts,
@@ -6,7 +6,7 @@ import {
   Poppins_700Bold,
 } from "@expo-google-fonts/poppins";
 
-export default function ButtonText({ item }: ButtonTextProps) {
+export default function ButtonText({ item, style }: ButtonTextProps) {
   let [fontsLoaded] = useFonts({
     Poppins_500Medium,
     Poppins_700Bold,
@@ -21,9 +21,9 @@ export default function ButtonText({ item }: ButtonTextProps) {
       style={{
         fontSize: 18,
         fontFamily: "Poppins_700Bold",
-        marginLeft: 10,
         textDecorationLine: item.completed ? "line-through" : "none",
         maxWidth: 150,
+        ...(style as TextStyle),
       }}
       numberOfLines={2}
       ellipsizeMode="tail"

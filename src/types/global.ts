@@ -19,4 +19,5 @@ export interface ButtonTextProps {
     textContent: string;
     completed: boolean;
   };
+  style?: React.CSSProperties;
 }

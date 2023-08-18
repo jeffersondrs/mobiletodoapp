@@ -1,5 +1,5 @@
 import React from "react";
-import { SafeAreaView, View, Text } from "react-native";
+import { SafeAreaView, View, StatusBar } from "react-native";
 import ListTodos from "../../components/organisms/ListTodos";
 import { AntDesign } from "@expo/vector-icons";
 import { Link } from "expo-router";
@@ -19,38 +19,49 @@ const TodoListScreen: React.FC = () => {
     return null;
   }
   return (
-    <SafeAreaView style={{ flex: 1, padding: 10 }}>
+    <SafeAreaView style={{ flex: 1 }}>
+      <StatusBar barStyle="light-content" backgroundColor={"#507edb"} />
       <View
         style={{
-          padding: 15,
+          padding: 10,
           display: "flex",
           flexDirection: "row",
           justifyContent: "center",
           alignItems: "center",
-          backgroundColor: "#037dc8",
-          marginBottom: 10,
+          backgroundColor: "#ffffff",
         }}
       >
-        <Text
+        <View
           style={{
-            color: "#fff",
-            fontFamily: "Poppins_700Bold",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: "#2a96da",
+            width: 100,
+            height: 45,
+            borderRadius: 5,
+            shadowColor: "#939393",
+            shadowOffset: {
+              width: 17,
+              height: 17,
+            },
+            shadowOpacity: 1,
+            shadowRadius: 34,
+            elevation: 5,
           }}
         >
-          Criar texto com titulo.
-        </Text>
-        <Link
-          href={"/(text)/text"}
-          style={{
-            position: "absolute",
-            width: "100%",
-            height: "100%",
-            paddingVertical: 10,
-            paddingHorizontal: 10,
-          }}
-        >
-          <AntDesign name="edit" size={24} color="white" />
-        </Link>
+          <AntDesign name="plus" size={24} color="#fff" />
+          <Link
+            href={"/(text)/text"}
+            style={{
+              position: "absolute",
+              width: "100%",
+              height: "100%",
+              borderRadius: 5,
+              padding: 10,
+            }}
+          ></Link>
+        </View>
       </View>
       <ListTodos />
     </SafeAreaView>

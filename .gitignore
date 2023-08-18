@@ -19,6 +19,7 @@ web-build/
 # Metro
 .metro-health-check*
 
+chave.google.json
 # debug
 npm-debug.*
 yarn-debug.*

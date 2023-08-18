@@ -7,19 +7,27 @@ import CardText from "../molecules/CardText";
 
 export default function ListTodos() {
   const todos = useSelector((state: RootState) => state.text.todos);
-  
+
+  const incompleteTodos = todos.filter((todo) => !todo.completed);
+  const completeTodos = todos.filter((todo) => todo.completed);
+
+  const reorderedTodos = incompleteTodos.concat(completeTodos);
 
   return (
     <View
-      style={{ height: "100%", width: Dimensions.get("screen").width, flex: 1 }}
+      style={{
+        height: "100%",
+        width: Dimensions.get("screen").width,
+        flex: 1,
+        backgroundColor: "#ffffff",
+      }}
     >
-      <MasonryFlashList
-        data={todos}
+      <FlashList
+        data={reorderedTodos}
         keyExtractor={(item) => item.id}
         numColumns={2}
-        estimatedItemSize={200}
-        renderItem={({ item }) => <CardText item={item} />}
-        
+        estimatedItemSize={195}
+        renderItem={({ item }) => <CardText key={item.id} item={item} />}
       />
     </View>
   );

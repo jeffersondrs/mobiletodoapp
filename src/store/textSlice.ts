@@ -5,8 +5,8 @@ interface TodoItem {
   title: string;
   textContent: string;
   completed: boolean;
-  optionalDate?: string;
-  optionalTime?: string;
+  createdAt: string;
+  updateAt: string;
 }
 
 interface TextState {
@@ -26,8 +26,8 @@ const textSlice = createSlice({
       action: PayloadAction<{
         title: string;
         textContent: string;
-        optionalDate?: string;
-        optionalTime?: string;
+        createdAt?: string;
+        updateAt?: string;
       }>
     ) => {
       const newTodo: TodoItem = {
@@ -35,8 +35,8 @@ const textSlice = createSlice({
         title: action.payload.title,
         textContent: action.payload.textContent,
         completed: false,
-        optionalDate: action.payload.optionalDate,
-        optionalTime: action.payload.optionalTime,
+        createdAt: Date.now().toString(),
+        updateAt: Date.now().toString(),
       };
       state.todos.push(newTodo);
     },
@@ -46,22 +46,22 @@ const textSlice = createSlice({
         id: string;
         title: string;
         textContent: string;
-        optionalDate?: string;
-        optionalTime?: string;
+        createdAt?: string;
+        updateAt?: string;
       }>
     ) => {
       const todo = state.todos.find((item) => item.id === action.payload.id);
       if (todo) {
         todo.title = action.payload.title;
         todo.textContent = action.payload.textContent;
-        todo.optionalDate = action.payload.optionalDate;
-        todo.optionalTime = action.payload.optionalTime;
+        todo.updateAt = Date.now().toString();
       }
     },
     toggleTodo: (state, action: PayloadAction<string>) => {
       const todo = state.todos.find((item) => item.id === action.payload);
       if (todo) {
         todo.completed = !todo.completed;
+        todo.updateAt = Date.now().toString();
       }
     },
     deleteTodo: (state, action: PayloadAction<string>) => {

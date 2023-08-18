@@ -3,7 +3,21 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 
 export default function TabLayout() {
   return (
-    <Tabs>
+    <Tabs
+      screenOptions={{
+        headerStyle: {
+          shadowColor: "#0000000e",
+          shadowOffset: {
+            width: 0,
+            height: 4,
+          },
+          shadowOpacity: 0.32,
+          shadowRadius: 5.46,
+          elevation: 9,
+          
+        },
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{

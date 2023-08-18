@@ -21,11 +21,6 @@ export default function EditTodo() {
   const [title, setTitle] = useState(todo?.title || "");
   const [textContent, setTextContent] = useState(todo?.textContent || "");
 
-  let [fontsLoaded] = useFonts({
-    Poppins_400Regular,
-    Poppins_700Bold,
-  });
-
   const dispatch = useDispatch();
 
   const handleEditTodo = () => {
@@ -37,6 +32,18 @@ export default function EditTodo() {
       })
     );
   };
+
+  if (title === "" || textContent === "") {
+    Toast.show({
+      type: "error",
+      text1: "Campos vazios",
+      text2: "Preencha todos os campos para editar sua tarefa 😉",
+      visibilityTime: 2000,
+      autoHide: true,
+      topOffset: 30,
+      bottomOffset: 40,
+    });
+  }
 
   const handleDeleteTodo = () => {
     dispatch(deleteTodo(id));
@@ -69,6 +76,15 @@ export default function EditTodo() {
       bottomOffset: 40,
     });
   };
+
+  let [fontsLoaded] = useFonts({
+    Poppins_400Regular,
+    Poppins_700Bold,
+  });
+
+  if (!fontsLoaded) {
+    return <Text>Carregando...</Text>;
+  }
 
   return (
     <SafeAreaView
@@ -120,7 +136,7 @@ export default function EditTodo() {
                 marginLeft: 5,
               }}
             >
-              Editar titulo
+              Editar título
             </Text>
             <TextInput
               style={{
@@ -178,13 +194,18 @@ export default function EditTodo() {
             justifyContent: "space-evenly",
           }}
         >
-          <Button
-            type="edit"
-            onPress={() => {
-              handleEditTodo();
-              handleEditToast();
-            }}
-          />
+          {title !== "" &&
+            textContent !== "" &&
+            (title !== todo?.title || textContent !== todo?.textContent) && (
+              <Button
+                type="update"
+                onPress={() => {
+                  handleEditTodo();
+                  handleEditToast();
+                }}
+              />
+            )}
+
           <Button
             type="delete"
             onPress={() => {

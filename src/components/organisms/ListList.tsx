@@ -76,8 +76,9 @@ export default function TabList() {
                 height: "100%",
                 position: "absolute",
                 padding: 15,
+                
               }}
-              href={`/${item.id}`}
+              href={`/(list)/${item.id}`}
             ></Link>
             <View
               style={{
@@ -100,7 +101,7 @@ export default function TabList() {
               >
                 {item.title}
               </Text>
-              <AntDesign name="edit" size={24} color="black" />
+              <AntDesign name="edit" size={24} color="#00000077" />
             </View>
           </View>
         )}

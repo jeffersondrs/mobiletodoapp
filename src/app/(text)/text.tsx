@@ -3,7 +3,7 @@ import ListTodoPage from "../../pages/list-todos/page";
 
 export default function TabText() {
   return(
-    <SafeAreaView style={{ flex: 1, padding: 10 }}>
+    <SafeAreaView style={{ flex: 1 }}>
       <ListTodoPage />
     </SafeAreaView>
   );

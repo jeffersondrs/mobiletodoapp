@@ -1,7 +1,7 @@
 import { Text } from "react-native";
 
 interface ButtonTextProps {
-  text: string;
+  text: string | JSX.Element;
   style?: any;
 }
 

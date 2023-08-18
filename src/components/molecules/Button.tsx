@@ -1,6 +1,7 @@
 import { Pressable } from "react-native";
 import ButtonText from "../atoms/ButtonText";
 import { useFonts, Poppins_500Medium } from "@expo-google-fonts/poppins";
+import { AntDesign } from "@expo/vector-icons";
 
 interface ButtonProps {
   type?: "add" | "edit" | "delete" | "update";
@@ -19,17 +20,30 @@ export default function Button({ type, onPress }: ButtonProps) {
   const buttonStyle = {
     backgroundColor:
       type === "add"
-        ? "green"
+        ? "#507edb"
         : type === "edit"
-        ? "blue"
+        ? "#507edb"
         : type === "delete"
         ? "red"
         : type === "update"
         ? "orange"
         : "gray",
+    shadowColor:
+      type === "add"
+        ? "#2200ff"
+        : type === "delete"
+        ? "red"
+        : type === "update"
+        ? "orange"
+        : "gray",
+    shadowOffset: {
+      width: 17,
+      height: 17,
+    },
+    shadowOpacity: 1,
+    shadowRadius: 34,
+    elevation: 5,
 
-    paddingHorizontal: 15,
-    paddingVertical: 15,
     borderRadius: 5,
   };
 
@@ -38,7 +52,7 @@ export default function Button({ type, onPress }: ButtonProps) {
       <ButtonText
         text={
           type === "add"
-            ? "Adicionar tarefa"
+            ? <AntDesign name="plus" size={30} color="#fff" />
             : type === "edit"
             ? "Editar tarefa"
             : type === "delete"
@@ -48,8 +62,20 @@ export default function Button({ type, onPress }: ButtonProps) {
             : "Botão"
         }
         style={{
-          color: "white",
           fontSize: 14,
+          color:
+            type === "add"
+              ? "#eeeeee"
+              : type === "edit"
+              ? "#ffffff"
+              : type === "delete"
+              ? "#fff"
+              : type === "update"
+              ? "#fff"
+              : "#fff",
+          paddingHorizontal: 15,
+          paddingVertical: 15,
+          borderRadius: 5,
           fontFamily: "Poppins_500Medium",
           textTransform: "uppercase",
           textAlign: "center",
