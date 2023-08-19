@@ -7,6 +7,7 @@ import {
   View,
   Modal,
   Alert,
+  Dimensions,
 } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -109,7 +110,7 @@ export default function EditList() {
   return (
     <SafeAreaView
       style={{
-        gap: 5,
+        flex: 1,
         backgroundColor: "#ffffff",
       }}
     >
@@ -125,7 +126,7 @@ export default function EditList() {
             alignItems: "center",
             paddingHorizontal: 10,
             paddingVertical: 5,
-            backgroundColor: "rgba(0,0,0,0.5)",
+            backgroundColor: "#2a97da24",
           }}
         >
           <View
@@ -140,19 +141,19 @@ export default function EditList() {
               justifyContent: "center",
               alignItems: "center",
               borderWidth: 1,
-              borderColor: "#000000",
+              borderColor: "#2a96da",
             }}
           >
             <TextInput
               style={{
                 fontFamily: "Poppins_700Bold",
                 fontSize: 20,
-                color: "#000000",
+                color: "#2a96da",
                 width: "100%",
                 padding: 5,
                 marginBottom: 10,
                 borderBottomWidth: 1,
-                borderBottomColor: "#000000",
+                borderBottomColor: "#2a96da",
                 textAlign: "center",
               }}
               placeholder="Título da lista"
@@ -162,7 +163,7 @@ export default function EditList() {
 
             <Pressable
               style={{
-                backgroundColor: "#000000",
+                backgroundColor: "#2a96da",
                 paddingHorizontal: 10,
                 paddingVertical: 5,
                 borderRadius: 5,
@@ -200,6 +201,7 @@ export default function EditList() {
             fontSize: 20,
             padding: 10,
             width: "60%",
+            color: "#2a96da",
           }}
           numberOfLines={3}
         >
@@ -209,7 +211,7 @@ export default function EditList() {
         <Pressable
           style={{
             display: modalVisible ? "none" : "flex",
-            backgroundColor: "#3b82fc",
+            backgroundColor: "",
             paddingHorizontal: 10,
             paddingVertical: 5,
             borderRadius: 5,
@@ -278,58 +280,60 @@ export default function EditList() {
           </Pressable>
         </View>
         {list?.listItems.length ? (
-          <FlashList
-            data={reorderedTodos}
-            estimatedItemSize={100}
-            renderItem={({ item }) => (
-              <View
-                style={{
-                  width: "100%",
-                  display: "flex",
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  paddingHorizontal: 10,
-                  paddingVertical: 10,
-                  borderBottomWidth: 1,
-                  borderBottomColor: "#2a96da",
-                }}
-              >
-                <Pressable
+          <View style={{ height: Dimensions.get("window").height * 0.8 }}>
+            <FlashList
+              data={reorderedTodos}
+              estimatedItemSize={1000}
+              renderItem={({ item }) => (
+                <View
                   style={{
-                    backgroundColor: item.completed ? "#3bfc4117" : "#ffffff",
-                    width: "80%",
-                    height: "100%",
-                    paddingHorizontal: 10,
+                    width: "100%",
                     display: "flex",
                     flexDirection: "row",
-                    justifyContent: "flex-start",
+                    justifyContent: "space-between",
                     alignItems: "center",
-                    gap: 10,
+                    paddingHorizontal: 10,
+                    paddingVertical: 10,
+                    borderBottomWidth: 1,
+                    borderBottomColor: "#2a96da",
                   }}
-                  onPress={() => handleToggleItem(item.id)}
                 >
-                  <Text>{item.completed ? "✅" : "❌"}</Text>
-                  <Text
+                  <Pressable
                     style={{
-                      fontFamily: "Poppins_400Regular",
-                      fontSize: 16,
-                      color: "#000",
-                      textDecorationLine: item.completed
-                        ? "line-through"
-                        : "none",
+                      backgroundColor: item.completed ? "#3bfc4117" : "#ffffff",
+                      width: "80%",
+                      height: "100%",
+                      paddingHorizontal: 10,
+                      display: "flex",
+                      flexDirection: "row",
+                      justifyContent: "flex-start",
+                      alignItems: "center",
+                      gap: 10,
                     }}
+                    onPress={() => handleToggleItem(item.id)}
                   >
-                    {item.content}
-                  </Text>
-                </Pressable>
-                <Pressable onPress={() => handleDeleteItemList(item.id)}>
-                  <AntDesign name="delete" size={24} color="#c30e0e" />
-                </Pressable>
-              </View>
-            )}
-            keyExtractor={(item) => item.id}
-          />
+                    <Text>{item.completed ? "✅" : "❌"}</Text>
+                    <Text
+                      style={{
+                        fontFamily: "Poppins_400Regular",
+                        fontSize: 16,
+                        color: "#000",
+                        textDecorationLine: item.completed
+                          ? "line-through"
+                          : "none",
+                      }}
+                    >
+                      {item.content}
+                    </Text>
+                  </Pressable>
+                  <Pressable onPress={() => handleDeleteItemList(item.id)}>
+                    <AntDesign name="delete" size={24} color="#c30e0e" />
+                  </Pressable>
+                </View>
+              )}
+              keyExtractor={(item) => item.id}
+            />
+          </View>
         ) : (
           <View
             style={{
