@@ -211,7 +211,7 @@ export default function EditList() {
         <Pressable
           style={{
             display: modalVisible ? "none" : "flex",
-            backgroundColor: "",
+            backgroundColor: "#2a96da",
             paddingHorizontal: 10,
             paddingVertical: 5,
             borderRadius: 5,
