@@ -1,13 +1,13 @@
-import { FlashList, MasonryFlashList } from "@shopify/flash-list";
+import { FlashList } from "@shopify/flash-list";
 import React from "react";
-import { View, Dimensions, Text } from "react-native";
+import { View, Dimensions } from "react-native";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 import CardText from "../molecules/CardText";
 
 export default function ListTodos() {
   const todos = useSelector((state: RootState) => state.text.todos);
-
+  const theme = useSelector((state: RootState) => state.themeColor);
   const incompleteTodos = todos.filter((todo) => !todo.completed);
   const completeTodos = todos.filter((todo) => todo.completed);
 
@@ -19,7 +19,7 @@ export default function ListTodos() {
         height: "100%",
         width: Dimensions.get("screen").width,
         flex: 1,
-        backgroundColor: "#ffffff",
+        backgroundColor: theme.background,
       }}
     >
       <FlashList

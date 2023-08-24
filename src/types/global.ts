@@ -21,3 +21,21 @@ export interface ButtonTextProps {
   };
   style?: React.CSSProperties;
 }
+
+export interface ThemeColor {
+  id: number;
+  name: string;
+  strings: string;
+  stringsActive: string;
+  title: string;
+  background: string;
+  card: string;
+  cardActive: string;
+  border: string;
+  shadow: string;
+  icons: string;
+  iconsActive: string;
+  buttons: string;
+  menu: string;
+  statusbar: string;
+}

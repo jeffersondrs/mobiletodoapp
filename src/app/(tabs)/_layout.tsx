@@ -1,7 +1,11 @@
-import { Link, Tabs } from "expo-router";
+import { Tabs } from "expo-router";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store/store";
 
 export default function TabLayout() {
+  const theme = useSelector((state: RootState) => state.themeColor);
+
   return (
     <Tabs>
       <Tabs.Screen
@@ -9,12 +13,13 @@ export default function TabLayout() {
         options={{
           title: "Tarefas",
           headerTitleAlign: "center",
+          headerTintColor: theme.title,
           tabBarIcon: ({ color, size }) => (
             <FontAwesome name="list-alt" color={color} size={size} />
           ),
-          tabBarActiveTintColor: "#0f8bf1",
+          tabBarActiveTintColor: theme.title,
           headerStyle: {
-            shadowColor: "#00000e",
+            shadowColor: theme.shadow,
             shadowOffset: {
               width: 0,
               height: 4,
@@ -22,6 +27,10 @@ export default function TabLayout() {
             shadowOpacity: 0.32,
             shadowRadius: 5.46,
             elevation: 9,
+            backgroundColor: theme.background,
+          },
+          tabBarStyle: {
+            backgroundColor: theme.background,
           },
         }}
       />
@@ -30,12 +39,13 @@ export default function TabLayout() {
         options={{
           title: "Listas",
           headerTitleAlign: "center",
+          headerTintColor: theme.title,
           tabBarIcon: ({ color, size }) => (
             <FontAwesome name="list" color={color} size={size} />
           ),
-          tabBarActiveTintColor: "#0f8bf1",
+          tabBarActiveTintColor: theme.title,
           headerStyle: {
-            shadowColor: "#00000e",
+            shadowColor: theme.shadow,
             shadowOffset: {
               width: 0,
               height: 4,
@@ -43,6 +53,10 @@ export default function TabLayout() {
             shadowOpacity: 0.32,
             shadowRadius: 5.46,
             elevation: 9,
+            backgroundColor: theme.background,
+          },
+          tabBarStyle: {
+            backgroundColor: theme.background,
           },
         }}
       />
@@ -51,12 +65,13 @@ export default function TabLayout() {
         options={{
           title: "Configurações",
           headerTitleAlign: "center",
+          headerTintColor: theme.title,
           tabBarIcon: ({ color, size }) => (
             <FontAwesome name="gear" color={color} size={size} />
           ),
-          tabBarActiveTintColor: "#0f8bf1",
+          tabBarActiveTintColor: theme.title,
           headerStyle: {
-            shadowColor: "#00000e",
+            shadowColor: theme.shadow,
             shadowOffset: {
               width: 0,
               height: 4,
@@ -64,6 +79,11 @@ export default function TabLayout() {
             shadowOpacity: 0.32,
             shadowRadius: 5.46,
             elevation: 9,
+            backgroundColor: theme.background,
+          },
+          headerShown: true,
+          tabBarStyle: {
+            backgroundColor: theme.background,
           },
         }}
       />

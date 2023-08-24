@@ -34,7 +34,7 @@ export default function EditList() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const lists = useSelector((state: RootState) => state.list.lists);
   const list = lists.find((list) => list.id === id);
-
+  const theme = useSelector((state: RootState) => state.themeColor);
   const incompleteTodos = list?.listItems.filter((todo) => !todo.completed);
   const completeTodos = list?.listItems.filter((todo) => todo.completed);
 
@@ -80,11 +80,23 @@ export default function EditList() {
   const handleDeleteList = () => {
     dispatch(deleteList({ id }));
 
-    Alert.alert("Lista deletada com sucesso!");
+    Toast.show({
+      type: "success",
+      position: "top",
+      text1: "Lista deletada",
+      text2: "Sua lista foi deletada com sucesso",
+      visibilityTime: 1000,
+      autoHide: true,
+      topOffset: 30,
+      bottomOffset: 40,
+      onShow: () => {},
+      onHide: () => {},
+      onPress: () => {},
+    });
 
     setTimeout(() => {
       router.back();
-    }, 800);
+    }, 1000);
   };
 
   const fontLoaded = useFonts({
@@ -96,26 +108,34 @@ export default function EditList() {
     return <Text>Carregando...</Text>;
   }
 
-  const editListTitle = () => {
+  const handleEditListTitle = () => {
     dispatch(
       editList({
         id,
         title,
       })
     );
+    setModalVisible(!modalVisible);
+  };
 
-    setModalVisible(false);
+  const handleOnRequestCloseModal = () => {
+    setModalVisible(!modalVisible);
   };
 
   return (
     <SafeAreaView
       style={{
         flex: 1,
-        backgroundColor: "#ffffff",
+        backgroundColor: theme.background,
       }}
     >
       <Toast />
-      <Modal animationType="slide" transparent={true} visible={modalVisible}>
+      <Modal
+        animationType="fade"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={handleOnRequestCloseModal}
+      >
         <View
           style={{
             width: "100%",
@@ -127,34 +147,49 @@ export default function EditList() {
             paddingHorizontal: 10,
             paddingVertical: 5,
             backgroundColor: "#2a97da24",
+            zIndex: -1,
           }}
         >
           <View
             style={{
-              width: "70%",
-              height: "20%",
-              backgroundColor: "#ffffff",
+              width: "90%",
+              height: "40%",
+              backgroundColor: theme.background,
               borderRadius: 5,
               padding: 10,
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
               alignItems: "center",
-              borderWidth: 1,
-              borderColor: "#2a96da",
             }}
           >
+            <Pressable
+              style={{
+                position: "absolute",
+                top: 10,
+                right: 10,
+                backgroundColor: theme.buttons,
+                borderRadius: 5,
+                padding: 10,
+              }}
+              onPress={handleOnRequestCloseModal}
+            >
+              <AntDesign name="close" size={24} color="#ffff" />
+            </Pressable>
             <TextInput
               style={{
-                fontFamily: "Poppins_700Bold",
+                fontFamily: "Poppins_400Regular",
                 fontSize: 20,
-                color: "#2a96da",
+                fontWeight: "bold",
+                margin: 10,
+                borderWidth: 1,
+                borderColor: theme.border,
+                borderRadius: 5,
                 width: "100%",
-                padding: 5,
-                marginBottom: 10,
-                borderBottomWidth: 1,
-                borderBottomColor: "#2a96da",
+                padding: 10,
+                paddingHorizontal: 10,
                 textAlign: "center",
+                color: theme.title,
               }}
               placeholder="Título da lista"
               value={title}
@@ -163,12 +198,16 @@ export default function EditList() {
 
             <Pressable
               style={{
-                backgroundColor: "#2a96da",
+                backgroundColor:
+                  title === "" || title === list?.title
+                    ? theme.card
+                    : theme.cardActive,
                 paddingHorizontal: 10,
                 paddingVertical: 5,
                 borderRadius: 5,
               }}
-              onPress={editListTitle}
+              disabled={title === "" || title === list?.title}
+              onPress={handleEditListTitle}
             >
               <Text
                 style={{
@@ -189,48 +228,56 @@ export default function EditList() {
           justifyContent: "space-between",
           alignItems: "center",
           flexDirection: "row",
-          paddingVertical: 5,
-          paddingHorizontal: 10,
           borderBottomWidth: 1,
-          borderBottomColor: "#2a96da",
+          borderBottomColor: theme.border,
+          zIndex: -1,
         }}
       >
-        <Text
+        <View
           style={{
-            fontFamily: "Poppins_700Bold",
-            fontSize: 20,
-            padding: 10,
-            width: "60%",
-            color: "#2a96da",
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+            width: "100%",
           }}
-          numberOfLines={3}
         >
-          {list?.title}
-        </Text>
-
-        <Pressable
-          style={{
-            display: modalVisible ? "none" : "flex",
-            backgroundColor: "#2a96da",
-            paddingHorizontal: 10,
-            paddingVertical: 5,
-            borderRadius: 5,
-          }}
-          onPress={() => setModalVisible(!modalVisible)}
-        >
-          <Text
+          <Pressable
             style={{
-              fontFamily: "Poppins_400Regular",
-              fontSize: 13,
-              color: "#ffffff",
+              padding: 5,
+              width: "90%",
+              flexDirection: "row",
+              justifyContent: "flex-start",
+              alignItems: "center",
+              gap: 5,
             }}
+            onPress={() => setModalVisible(!modalVisible)}
           >
-            Alterar Titulo
-          </Text>
-        </Pressable>
-        <Pressable onPress={handleDeleteList}>
-          <AntDesign name="delete" size={24} color="#c30e0e" />
-        </Pressable>
+            <Text
+              style={{
+                fontFamily: "Poppins_700Bold",
+                fontSize: 20,
+                padding: 10,
+                width: "90%",
+                color: theme.title,
+              }}
+              numberOfLines={3}
+            >
+              {list?.title}
+            </Text>
+            <AntDesign name="edit" size={24} color={theme.icons} />
+          </Pressable>
+          <Pressable
+            style={{
+              width: "10%",
+              flexDirection: "row",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+            onPress={handleDeleteList}
+          >
+            <AntDesign name="delete" size={24} color={theme.icons} />
+          </Pressable>
+        </View>
       </View>
       <View
         style={{
@@ -238,6 +285,7 @@ export default function EditList() {
           height: "100%",
           justifyContent: "flex-start",
           flexDirection: "column",
+          zIndex: -1,
         }}
       >
         <View
@@ -248,7 +296,7 @@ export default function EditList() {
             justifyContent: "center",
             alignItems: "center",
             borderBottomWidth: 1,
-            borderBottomColor: "#2a96da",
+            borderBottomColor: theme.border,
             paddingVertical: 5,
           }}
         >
@@ -256,19 +304,23 @@ export default function EditList() {
             style={{
               fontFamily: "Poppins_400Regular",
               fontSize: 16,
-              color: "#000",
-              backgroundColor: "#fff",
+              color: theme.icons,
+              backgroundColor: theme.background,
               width: "90%",
+              height: 50,
               paddingHorizontal: 10,
-              paddingVertical: 5,
+              paddingVertical: 10,
             }}
+            selectionColor={"#2a97da2b"}
             placeholder="Adicionar item"
+            placeholderTextColor={theme.strings}
             value={textContent}
             onChangeText={(text) => setTextContent(text)}
           />
           <Pressable
             style={{
-              backgroundColor: "#2a96da",
+              backgroundColor:
+                textContent === "" ? theme.strings : theme.stringsActive,
               paddingHorizontal: 5,
               paddingVertical: 5,
               borderRadius: 5,
@@ -276,7 +328,11 @@ export default function EditList() {
             disabled={textContent === ""}
             onPress={handleAddItemList}
           >
-            <AntDesign name="plus" size={24} color="#ffffff" />
+            <AntDesign
+              name="plus"
+              size={24}
+              color={textContent === "" ? theme.icons : theme.iconsActive}
+            />
           </Pressable>
         </View>
         {list?.listItems.length ? (
@@ -292,32 +348,61 @@ export default function EditList() {
                     flexDirection: "row",
                     justifyContent: "space-between",
                     alignItems: "center",
-                    paddingHorizontal: 10,
-                    paddingVertical: 10,
+                    paddingVertical: 2,
                     borderBottomWidth: 1,
                     borderBottomColor: "#2a96da",
+                    height: 60,
+                    backgroundColor: theme.background,
                   }}
                 >
                   <Pressable
                     style={{
-                      backgroundColor: item.completed ? "#3bfc4117" : "#ffffff",
-                      width: "80%",
+                      paddingHorizontal: 5,
                       height: "100%",
-                      paddingHorizontal: 10,
                       display: "flex",
                       flexDirection: "row",
                       justifyContent: "flex-start",
                       alignItems: "center",
-                      gap: 10,
                     }}
                     onPress={() => handleToggleItem(item.id)}
                   >
-                    <Text>{item.completed ? "✅" : "❌"}</Text>
+                    <View
+                      style={{
+                        borderWidth: 1,
+                        borderColor: "#00000028",
+                        borderRadius: 100,
+                        padding: 5,
+                        flexDirection: "row",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        backgroundColor: item.completed
+                          ? theme.iconsActive
+                          : theme.icons,
+                      }}
+                    >
+                      {item.completed ? (
+                        <AntDesign name="check" size={20} color={theme.icons} />
+                      ) : (
+                        <AntDesign name="question" size={20} color="#fff" />
+                      )}
+                    </View>
+                  </Pressable>
+                  <Pressable
+                    style={{
+                      width: "80%",
+                      height: "100%",
+                      flexDirection: "row",
+                      justifyContent: "flex-start",
+                      alignItems: "center",
+                      paddingLeft: 10,
+                      paddingRight: 5,
+                    }}
+                  >
                     <Text
                       style={{
                         fontFamily: "Poppins_400Regular",
                         fontSize: 16,
-                        color: "#000",
+                        color: item.completed ? theme.icons : theme.icons,
                         textDecorationLine: item.completed
                           ? "line-through"
                           : "none",
@@ -326,8 +411,17 @@ export default function EditList() {
                       {item.content}
                     </Text>
                   </Pressable>
-                  <Pressable onPress={() => handleDeleteItemList(item.id)}>
-                    <AntDesign name="delete" size={24} color="#c30e0e" />
+                  <Pressable
+                    style={{
+                      width: "10%",
+                      height: "100%",
+                      flexDirection: "row",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                    onPress={() => handleDeleteItemList(item.id)}
+                  >
+                    <AntDesign name="delete" size={24} color={theme.icons} />
                   </Pressable>
                 </View>
               )}
@@ -349,7 +443,7 @@ export default function EditList() {
               style={{
                 fontFamily: "Poppins_400Regular",
                 fontSize: 16,
-                color: "#000",
+                color: theme.icons,
               }}
             >
               Nenhuma item adicionado

@@ -1,19 +1,23 @@
 import { View } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { Link } from "expo-router";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store/store";
 
 export default function ButtonPlus() {
+  const theme = useSelector((state: RootState) => state.themeColor);
+
   return (
     <View
       style={{
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "#2a96da",
+        backgroundColor: theme.buttons,
         width: 100,
         height: 45,
         borderRadius: 5,
-        shadowColor: "#939393",
+        shadowColor: theme.shadow,
         shadowOffset: {
           width: 17,
           height: 17,
@@ -23,7 +27,7 @@ export default function ButtonPlus() {
         elevation: 5,
       }}
     >
-      <AntDesign name="plus" size={24} color="#fff" />
+      <AntDesign name="plus" size={24} color={theme.iconsActive} />
       <Link
         href={"/(list)/list"}
         style={{

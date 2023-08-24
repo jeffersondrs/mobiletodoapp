@@ -2,6 +2,8 @@ import React from "react";
 import { TextInput, Text, View } from "react-native";
 import { InputTextProps } from "../../types/global";
 import { useFonts, Poppins_400Regular } from "@expo-google-fonts/poppins";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store/store";
 
 export default function InputText({
   newTodoTitle,
@@ -11,7 +13,7 @@ export default function InputText({
 }: InputTextProps) {
   const typeInput = type === "text" ? 40 : "50%";
   const textAlignVertical = type === "text" ? "center" : "top";
-
+  const theme = useSelector((state: RootState) => state.themeColor);
   let [fontsLoaded] = useFonts({
     Poppins_400Regular,
   });
@@ -29,7 +31,7 @@ export default function InputText({
         width: "100%",
         height: type === "textarea" ? "90%" : 50,
         borderRadius: 5,
-        backgroundColor: "#fff",
+        backgroundColor: theme.card,
         shadowColor: "0px 0px 2px 0px rgba(0, 0, 0, 0.301)",
         shadowOffset: {
           width: 0,
@@ -49,7 +51,7 @@ export default function InputText({
           fontSize: 17,
           fontFamily: "Poppins_400Regular",
           minHeight: typeInput,
-          color: "#000",
+          color: theme.stringsActive,
           textAlignVertical: textAlignVertical,
           textAlign: "left",
           paddingRight: 40,
@@ -59,14 +61,14 @@ export default function InputText({
         value={newTodoTitle}
         onChangeText={(text) => setNewTodoTitle(text)}
         placeholder={placeholder}
-        placeholderTextColor="#999"
+        placeholderTextColor="#99999976"
         multiline={type === "textarea" ? true : false}
         maxLength={maxLength}
       />
       <Text
         style={{
           marginTop: 5,
-          color: characterCount === maxLength ? "red" : "#999",
+          color: characterCount === maxLength ? "#99999976" : theme.border,
           textAlign: "right",
           fontSize: 12,
           fontFamily: "Poppins_400Regular",

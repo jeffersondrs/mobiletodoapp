@@ -29,17 +29,14 @@ export default function TabList() {
     <View
       style={{
         width: "100%",
-        height: "100%",
-        paddingVertical: 10,
-        paddingLeft: 30,
-        backgroundColor: "#ffffff",
+        height: "91%",
       }}
     >
       <FlashList
         data={reorderedTodos}
         keyExtractor={(item) => item.id}
         numColumns={2}
-        estimatedItemSize={200}
+        estimatedItemSize={250}
         renderItem={({ item }) => <CardList key={item.id} item={item} />}
       />
     </View>

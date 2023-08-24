@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SafeAreaView, Text, TextInput, View } from "react-native";
+import { SafeAreaView, Text, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { editTodo, deleteTodo } from "../../store/textSlice";
 import { RootState } from "../../store/store";
@@ -22,7 +22,7 @@ export default function EditTodo() {
   const router = useRouter();
   const [title, setTitle] = useState(todo?.title || "");
   const [textContent, setTextContent] = useState(todo?.textContent || "");
-
+  const theme = useSelector((state: RootState) => state.themeColor);
   const dispatch = useDispatch();
 
   const handleEditTodo = () => {
@@ -44,6 +44,7 @@ export default function EditTodo() {
       autoHide: true,
       topOffset: 30,
       bottomOffset: 40,
+      position: "bottom",
     });
   }
 
@@ -108,7 +109,7 @@ export default function EditTodo() {
           flexDirection: "column",
           gap: 5,
           width: "100%",
-          backgroundColor: "white",
+          backgroundColor: theme.background,
           paddingVertical: 10,
         }}
       >
@@ -120,7 +121,6 @@ export default function EditTodo() {
             flexDirection: "column",
             gap: 5,
             width: "100%",
-            backgroundColor: "white",
             padding: 5,
             height: "100%",
           }}

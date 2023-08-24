@@ -3,10 +3,10 @@ import { Link } from "expo-router";
 import { AntDesign } from "@expo/vector-icons";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../store/store";
 import { toggleList } from "../../store/listSlice";
 import { useFonts, Poppins_500Medium } from "@expo-google-fonts/poppins";
-
 interface ListItem {
   id: string;
   content: string;
@@ -23,7 +23,7 @@ interface ListObject {
 export default function CardList({ item }: ListObject) {
   const [isChecked, setIsChecked] = useState(item.completed);
   const dispatch = useDispatch();
-
+  const theme = useSelector((state: RootState) => state.themeColor);
   const handleToggleTodo = () => {
     dispatch(toggleList({ id: item.id }));
     setIsChecked(!isChecked);
@@ -43,8 +43,8 @@ export default function CardList({ item }: ListObject) {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "space-evenly",
-        backgroundColor: isChecked ? "#2a96da" : "#fff",
-        width: 150,
+        backgroundColor: isChecked ? theme.cardActive : theme.card,
+        width: 200,
         height: 100,
         borderRadius: 5,
         paddingHorizontal: 10,
@@ -63,8 +63,10 @@ export default function CardList({ item }: ListObject) {
       <Text
         style={{
           fontSize: 18,
-          color: isChecked ? "#fff" : "#025074",
+          color: isChecked ? theme.strings : theme.stringsActive,
           fontWeight: "bold",
+          fontFamily: "Poppins_500Medium",
+          textDecorationLine: isChecked ? "line-through" : "none",
         }}
         numberOfLines={2}
       >
@@ -82,16 +84,18 @@ export default function CardList({ item }: ListObject) {
       >
         <BouncyCheckbox
           size={30}
-          fillColor="#025074"
-          unfillColor="#ffffff"
+          fillColor={isChecked ? theme.strings : theme.stringsActive}
+          unfillColor={theme.icons}
           text={isChecked ? "Feito" : "À fazer"}
           isChecked={isChecked}
-          iconStyle={{ borderColor: "#15ed4b" }}
           innerIconStyle={{
             zIndex: 1,
-            backgroundColor: isChecked ? "#025074" : "#fff",
+            backgroundColor: isChecked ? theme.cardActive : theme.card,
           }}
-          textStyle={{ fontFamily: "Poppins_500Medium" }}
+          textStyle={{
+            fontFamily: "Poppins_500Medium",
+            color: isChecked ? theme.strings : theme.stringsActive,
+          }}
           onPress={() => handleToggleTodo()}
         />
 
@@ -104,7 +108,7 @@ export default function CardList({ item }: ListObject) {
           <AntDesign
             name="edit"
             size={24}
-            color={isChecked ? "#fff" : "#025074"}
+            color={isChecked ? theme.iconsActive : theme.icons}
           />
         </Link>
       </View>

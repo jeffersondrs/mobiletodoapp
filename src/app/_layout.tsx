@@ -11,6 +11,7 @@ export default function App() {
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
           <Stack.Screen name="(text)" options={{ headerShown: false }} />
           <Stack.Screen name="(list)" options={{ headerShown: false }} />
+          <Stack.Screen name="(configs)" options={{ headerShown: false }} />
           <Stack.Screen name="modal" options={{ presentation: "modal" }} />
         </Stack>
       </PersistGate>

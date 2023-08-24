@@ -5,12 +5,14 @@ import { addTodo } from "../../store/textSlice";
 import InputText from "../atoms/InputText";
 import Button from "./Button";
 import Toast from "react-native-toast-message";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store/store";
 
 export default function AddTodo() {
   const [newTodoTitle, setNewTodoTitle] = useState("");
   const [newTodoContent, setNewTodoContent] = useState("");
   const dispatch = useDispatch();
-
+  const theme = useSelector((state: RootState) => state.themeColor);
   const handleAddTodo = () => {
     if (newTodoTitle.trim() !== "" && newTodoContent.trim() !== "") {
       dispatch(addTodo({ title: newTodoTitle, textContent: newTodoContent }));
@@ -39,7 +41,7 @@ export default function AddTodo() {
         height: "100%",
         paddingVertical: 30,
         paddingHorizontal: 5,
-        backgroundColor: "#fff",
+        backgroundColor: theme.background,
       }}
     >
       <Toast />
