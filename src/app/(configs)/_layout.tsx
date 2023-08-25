@@ -20,6 +20,42 @@ export default function LayoutList() {
           },
         }}
       />
+      <Stack.Screen
+        name="privacy"
+        options={{
+          headerShown: true,
+          title: "Privacidade",
+          headerTitleAlign: "center",
+          headerTintColor: theme.title,
+          headerStyle: {
+            backgroundColor: theme.background,
+          },
+        }}
+      />
+      <Stack.Screen
+        name="feedback"
+        options={{
+          headerShown: true,
+          title: "Feedback",
+          headerTitleAlign: "center",
+          headerTintColor: theme.title,
+          headerStyle: {
+            backgroundColor: theme.background,
+          },
+        }}
+      />
+      <Stack.Screen
+        name="donate"
+        options={{
+          headerShown: true,
+          title: "Doar",
+          headerTitleAlign: "center",
+          headerTintColor: theme.title,
+          headerStyle: {
+            backgroundColor: theme.background,
+          },
+        }}
+      />
     </Stack>
   );
 }

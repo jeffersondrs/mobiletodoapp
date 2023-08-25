@@ -8,11 +8,10 @@ import { Link } from "expo-router";
 import { useSelector } from "react-redux";
 import { RootState } from "@/src/store/store";
 import * as Animatable from "react-native-animatable";
-import { useRef } from "react";
+import { AntDesign } from "@expo/vector-icons";
 
 export default function Config() {
   const theme = useSelector((state: RootState) => state.themeColor);
-  const ref = useRef(null);
 
   let [fontsLoaded] = useFonts({
     Poppins_400Regular,
@@ -29,6 +28,7 @@ export default function Config() {
         backgroundColor: theme.background,
       }}
     >
+      <StatusBar barStyle="light-content" backgroundColor={theme.statusbar} />
       <Animatable.View
         animation="bounceIn"
         useNativeDriver
@@ -39,13 +39,12 @@ export default function Config() {
           marginBottom: 5,
           height: 50,
           display: "flex",
-          justifyContent: "center",
+          justifyContent: "flex-start",
           alignItems: "center",
           flexDirection: "row",
+          backgroundColor: theme.menu,
         }}
       >
-        <StatusBar barStyle="light-content" backgroundColor={theme.statusbar} />
-
         <Link
           style={{
             position: "absolute",
@@ -55,60 +54,174 @@ export default function Config() {
           }}
           href={"/(configs)/theme"}
         ></Link>
+        <View
+          style={{
+            width: 50,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <AntDesign name="skin" size={24} color={theme.title} />
+        </View>
         <Text
           style={{
             color: theme.title,
             fontSize: 18,
-            fontFamily: "Poppins_700Bold",
-            textAlign: "left",
+            fontFamily: "Poppins_400Regular",
+            textAlign: "center",
             paddingVertical: 15,
             paddingHorizontal: 10,
-            backgroundColor: theme.menu,
-            borderRadius: 2,
-            shadowColor: theme.shadow,
-            shadowOffset: {
-              width: 0,
-              height: 2,
-            },
-            width: "100%",
-            height: 50,
-            shadowOpacity: 0.25,
-            shadowRadius: 3.85,
           }}
         >
           Alterar tema do app
         </Text>
       </Animatable.View>
 
-      <Pressable
+      <Animatable.View
+        animation="bounceIn"
+        useNativeDriver
+        duration={2000}
+        delay={100}
         style={{
           width: "100%",
           marginBottom: 5,
+          height: 50,
+          display: "flex",
+          justifyContent: "flex-start",
+          alignItems: "center",
+          flexDirection: "row",
+          backgroundColor: theme.menu,
         }}
       >
+        <Link
+          style={{
+            position: "absolute",
+            zIndex: 1,
+            width: "100%",
+            height: "100%",
+          }}
+          href={"/(configs)/privacy"}
+        ></Link>
+        <View
+          style={{
+            width: 50,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <AntDesign name="lock" size={24} color={theme.title} />
+        </View>
         <Text
           style={{
-            color: theme.shadow,
+            color: theme.title,
             fontSize: 18,
-            fontFamily: "Poppins_700Bold",
+            fontFamily: "Poppins_400Regular",
             textAlign: "left",
             paddingVertical: 15,
             paddingHorizontal: 10,
-            backgroundColor: theme.menu,
-            borderRadius: 2,
-            shadowColor: theme.shadow,
-            shadowOffset: {
-              width: 0,
-              height: 2,
-            },
-            width: "100%",
-            shadowOpacity: 0.25,
-            shadowRadius: 3.85,
           }}
         >
-          In soon Language
+          Privacidade
         </Text>
-      </Pressable>
+      </Animatable.View>
+      <Animatable.View
+        animation="bounceIn"
+        useNativeDriver
+        duration={2000}
+        delay={100}
+        style={{
+          width: "100%",
+          marginBottom: 5,
+          height: 50,
+          display: "flex",
+          justifyContent: "flex-start",
+          alignItems: "center",
+          flexDirection: "row",
+          backgroundColor: theme.menu,
+        }}
+      >
+        <Link
+          style={{
+            position: "absolute",
+            zIndex: 1,
+            width: "100%",
+            height: "100%",
+          }}
+          href={"/(configs)/feedback"}
+        ></Link>
+        <View
+          style={{
+            width: 50,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <AntDesign name="message1" size={24} color={theme.title} />
+        </View>
+        <Text
+          style={{
+            color: theme.title,
+            fontSize: 18,
+            fontFamily: "Poppins_400Regular",
+            textAlign: "left",
+            paddingVertical: 15,
+            paddingHorizontal: 10,
+          }}
+        >
+          Feedback
+        </Text>
+      </Animatable.View>
+      <Animatable.View
+        animation="bounceIn"
+        useNativeDriver
+        duration={2000}
+        delay={100}
+        style={{
+          width: "100%",
+          marginBottom: 5,
+          height: 50,
+          display: "flex",
+          justifyContent: "flex-start",
+          alignItems: "center",
+          flexDirection: "row",
+          backgroundColor: theme.menu,
+        }}
+      >
+        <Link
+          style={{
+            position: "absolute",
+            zIndex: 1,
+            width: "100%",
+            height: "100%",
+          }}
+          href={"/(configs)/donate"}
+        ></Link>
+        <View
+          style={{
+            width: 50,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <AntDesign name="heart" size={24} color={theme.title} />
+        </View>
+        <Text
+          style={{
+            color: theme.title,
+            fontSize: 18,
+            fontFamily: "Poppins_400Regular",
+            textAlign: "left",
+            paddingVertical: 15,
+            paddingHorizontal: 10,
+          }}
+        >
+          Doações para o desenvolvedor
+        </Text>
+      </Animatable.View>
       <Pressable
         style={{
           width: "100%",
@@ -164,7 +277,7 @@ export default function Config() {
             shadowRadius: 3.85,
           }}
         >
-          In soon Privacy
+          In soon Language
         </Text>
       </Pressable>
       <Pressable
@@ -368,64 +481,6 @@ export default function Config() {
           }}
         >
           In soon Help
-        </Text>
-      </Pressable>
-      <Pressable
-        style={{
-          width: "100%",
-          marginBottom: 5,
-        }}
-      >
-        <Text
-          style={{
-            color: theme.shadow,
-            fontSize: 18,
-            fontFamily: "Poppins_700Bold",
-            textAlign: "left",
-            paddingVertical: 15,
-            paddingHorizontal: 10,
-            backgroundColor: theme.menu,
-            borderRadius: 2,
-            shadowColor: theme.shadow,
-            shadowOffset: {
-              width: 0,
-              height: 2,
-            },
-            width: "100%",
-            shadowOpacity: 0.25,
-            shadowRadius: 3.85,
-          }}
-        >
-          In soon Feedback
-        </Text>
-      </Pressable>
-      <Pressable
-        style={{
-          width: "100%",
-          marginBottom: 5,
-        }}
-      >
-        <Text
-          style={{
-            color: theme.shadow,
-            fontSize: 18,
-            fontFamily: "Poppins_700Bold",
-            textAlign: "left",
-            paddingVertical: 15,
-            paddingHorizontal: 10,
-            backgroundColor: theme.menu,
-            borderRadius: 2,
-            shadowColor: theme.shadow,
-            shadowOffset: {
-              width: 0,
-              height: 2,
-            },
-            width: "100%",
-            shadowOpacity: 0.25,
-            shadowRadius: 3.85,
-          }}
-        >
-          In soon Donate
         </Text>
       </Pressable>
     </ScrollView>
