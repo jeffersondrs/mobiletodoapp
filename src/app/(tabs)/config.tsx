@@ -1,4 +1,4 @@
-import { Text, ScrollView, Pressable, View, StatusBar } from "react-native";
+import { Text, ScrollView, View, StatusBar } from "react-native";
 import {
   useFonts,
   Poppins_400Regular,
@@ -29,6 +29,102 @@ export default function Config() {
       }}
     >
       <StatusBar barStyle="light-content" backgroundColor={theme.statusbar} />
+      <Animatable.View
+        animation="bounceIn"
+        useNativeDriver
+        duration={2000}
+        delay={100}
+        style={{
+          width: "100%",
+          marginBottom: 5,
+          height: 50,
+          display: "flex",
+          justifyContent: "flex-start",
+          alignItems: "center",
+          flexDirection: "row",
+          backgroundColor: theme.menu,
+        }}
+      >
+        <Link
+          style={{
+            position: "absolute",
+            zIndex: 1,
+            width: "100%",
+            height: "100%",
+          }}
+          href={"/(configs)/donate"}
+        ></Link>
+        <View
+          style={{
+            width: 50,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <AntDesign name="heart" size={24} color={theme.title} />
+        </View>
+        <Text
+          style={{
+            color: theme.title,
+            fontSize: 18,
+            fontFamily: "Poppins_400Regular",
+            textAlign: "left",
+            paddingVertical: 15,
+            paddingHorizontal: 10,
+          }}
+        >
+          Doações para o desenvolvedor
+        </Text>
+      </Animatable.View>
+      <Animatable.View
+        animation="bounceIn"
+        useNativeDriver
+        duration={2000}
+        delay={100}
+        style={{
+          width: "100%",
+          marginBottom: 5,
+          height: 50,
+          display: "flex",
+          justifyContent: "flex-start",
+          alignItems: "center",
+          flexDirection: "row",
+          backgroundColor: theme.menu,
+        }}
+      >
+        <Link
+          style={{
+            position: "absolute",
+            zIndex: 1,
+            width: "100%",
+            height: "100%",
+          }}
+          href={"/(configs)/feedback"}
+        ></Link>
+        <View
+          style={{
+            width: 50,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <AntDesign name="message1" size={24} color={theme.title} />
+        </View>
+        <Text
+          style={{
+            color: theme.title,
+            fontSize: 18,
+            fontFamily: "Poppins_400Regular",
+            textAlign: "left",
+            paddingVertical: 15,
+            paddingHorizontal: 10,
+          }}
+        >
+          Feedback
+        </Text>
+      </Animatable.View>
       <Animatable.View
         animation="bounceIn"
         useNativeDriver
@@ -111,7 +207,7 @@ export default function Config() {
             alignItems: "center",
           }}
         >
-          <AntDesign name="lock" size={24} color={theme.title} />
+          <AntDesign name="lock1" size={24} color={theme.title} />
         </View>
         <Text
           style={{
@@ -126,6 +222,7 @@ export default function Config() {
           Privacidade
         </Text>
       </Animatable.View>
+
       <Animatable.View
         animation="bounceIn"
         useNativeDriver
@@ -149,7 +246,7 @@ export default function Config() {
             width: "100%",
             height: "100%",
           }}
-          href={"/(configs)/feedback"}
+          href={"/(configs)/version"}
         ></Link>
         <View
           style={{
@@ -159,7 +256,57 @@ export default function Config() {
             alignItems: "center",
           }}
         >
-          <AntDesign name="message1" size={24} color={theme.title} />
+          <AntDesign name="star" size={24} color={theme.title} />
+        </View>
+
+        <Text
+          style={{
+            color: theme.title,
+            fontSize: 18,
+            fontFamily: "Poppins_400Regular",
+            textAlign: "left",
+            paddingVertical: 15,
+            paddingHorizontal: 10,
+          }}
+        >
+          Versão do app
+        </Text>
+      </Animatable.View>
+
+      <Animatable.View
+        animation="bounceIn"
+        useNativeDriver
+        duration={2000}
+        delay={100}
+        style={{
+          width: "100%",
+          marginBottom: 5,
+          height: 50,
+          display: "flex",
+          justifyContent: "flex-start",
+          alignItems: "center",
+          flexDirection: "row",
+          backgroundColor: theme.menu,
+        }}
+      >
+        <Link
+          style={{
+            position: "absolute",
+            zIndex: 1,
+            width: "100%",
+            height: "100%",
+          }}
+          href={"/(configs)/about"}
+        ></Link>
+        <View
+          style={{
+            width: 50,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <AntDesign name="exclamationcircle" size={24} color={theme.title} />
         </View>
         <Text
           style={{
@@ -171,7 +318,7 @@ export default function Config() {
             paddingHorizontal: 10,
           }}
         >
-          Feedback
+          Sobre
         </Text>
       </Animatable.View>
       <Animatable.View
@@ -197,7 +344,7 @@ export default function Config() {
             width: "100%",
             height: "100%",
           }}
-          href={"/(configs)/donate"}
+          href={"/(configs)/help"}
         ></Link>
         <View
           style={{
@@ -207,7 +354,7 @@ export default function Config() {
             alignItems: "center",
           }}
         >
-          <AntDesign name="heart" size={24} color={theme.title} />
+          <AntDesign name="questioncircle" size={24} color={theme.title} />
         </View>
         <Text
           style={{
@@ -219,270 +366,202 @@ export default function Config() {
             paddingHorizontal: 10,
           }}
         >
-          Doações para o desenvolvedor
+          Ajuda
         </Text>
       </Animatable.View>
-      <Pressable
+      <Animatable.View
+        animation="bounceIn"
+        useNativeDriver
+        duration={2000}
+        delay={100}
         style={{
           width: "100%",
           marginBottom: 5,
+          height: 50,
+          display: "flex",
+          justifyContent: "flex-start",
+          alignItems: "center",
+          flexDirection: "row",
+          backgroundColor: theme.menu,
         }}
       >
+        <Link
+          style={{
+            position: "absolute",
+            zIndex: 1,
+            width: "100%",
+            height: "100%",
+          }}
+          href={"/(configs)/notifications"}
+        ></Link>
+        <View
+          style={{
+            width: 50,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <AntDesign name="notification" size={24} color={theme.title} />
+        </View>
         <Text
           style={{
-            color: theme.shadow,
+            color: theme.title,
             fontSize: 18,
-            fontFamily: "Poppins_700Bold",
+            fontFamily: "Poppins_400Regular",
             textAlign: "left",
             paddingVertical: 15,
             paddingHorizontal: 10,
-            backgroundColor: theme.menu,
-            borderRadius: 2,
-            shadowColor: theme.shadow,
-            shadowOffset: {
-              width: 0,
-              height: 2,
-            },
-            width: "100%",
-            shadowOpacity: 0.25,
-            shadowRadius: 3.85,
           }}
         >
-          In soon Notifications
+          Notificações
         </Text>
-      </Pressable>
-      <Pressable
+      </Animatable.View>
+      <Animatable.View
+        animation="bounceIn"
+        useNativeDriver
+        duration={2000}
+        delay={100}
         style={{
           width: "100%",
           marginBottom: 5,
+          height: 50,
+          display: "flex",
+          justifyContent: "flex-start",
+          alignItems: "center",
+          flexDirection: "row",
+          backgroundColor: theme.menu,
         }}
       >
+        <Link
+          style={{
+            position: "absolute",
+            zIndex: 1,
+            width: "100%",
+            height: "100%",
+          }}
+          href={"/(configs)/login"}
+        ></Link>
+        <View
+          style={{
+            width: 50,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <AntDesign name="user" size={24} color={theme.title} />
+        </View>
         <Text
           style={{
-            color: theme.shadow,
+            color: theme.title,
             fontSize: 18,
-            fontFamily: "Poppins_700Bold",
+            fontFamily: "Poppins_400Regular",
             textAlign: "left",
             paddingVertical: 15,
             paddingHorizontal: 10,
-            backgroundColor: theme.menu,
-            borderRadius: 2,
-            shadowColor: theme.shadow,
-            shadowOffset: {
-              width: 0,
-              height: 2,
-            },
-            width: "100%",
-            shadowOpacity: 0.25,
-            shadowRadius: 3.85,
           }}
         >
-          In soon Language
+          Configurações da Conta
         </Text>
-      </Pressable>
-      <Pressable
+      </Animatable.View>
+
+      <Animatable.View
+        animation="bounceIn"
+        useNativeDriver
+        duration={2000}
+        delay={100}
         style={{
           width: "100%",
           marginBottom: 5,
+          height: 50,
+          display: "flex",
+          justifyContent: "flex-start",
+          alignItems: "center",
+          flexDirection: "row",
+          backgroundColor: theme.menu,
         }}
       >
+        <Link
+          style={{
+            position: "absolute",
+            zIndex: 1,
+            width: "100%",
+            height: "100%",
+          }}
+          href={"/(configs)/register"}
+        ></Link>
+        <View
+          style={{
+            width: 50,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <AntDesign name="adduser" size={24} color={theme.title} />
+        </View>
         <Text
           style={{
-            color: theme.shadow,
+            color: theme.title,
             fontSize: 18,
-            fontFamily: "Poppins_700Bold",
+            fontFamily: "Poppins_400Regular",
             textAlign: "left",
             paddingVertical: 15,
             paddingHorizontal: 10,
-            backgroundColor: theme.menu,
-            borderRadius: 2,
-            shadowColor: theme.shadow,
-            shadowOffset: {
-              width: 0,
-              height: 2,
-            },
-            width: "100%",
-            shadowOpacity: 0.25,
-            shadowRadius: 3.85,
           }}
         >
-          In soon About
+          Criar Conta
         </Text>
-      </Pressable>
-      <Pressable
+      </Animatable.View>
+      <Animatable.View
+        animation="bounceIn"
+        useNativeDriver
+        duration={2000}
+        delay={100}
         style={{
           width: "100%",
           marginBottom: 5,
+          height: 50,
+          display: "flex",
+          justifyContent: "flex-start",
+          alignItems: "center",
+          flexDirection: "row",
+          backgroundColor: theme.menu,
         }}
       >
+        {/* <Link
+          style={{
+            position: "absolute",
+            zIndex: 1,
+            width: "100%",
+            height: "100%",
+          }}
+          href={"/(configs)/help"}
+        ></Link> */}
+        <View
+          style={{
+            width: 50,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <AntDesign name="logout" size={24} color={theme.title} />
+        </View>
         <Text
           style={{
-            color: theme.shadow,
+            color: theme.title,
             fontSize: 18,
-            fontFamily: "Poppins_700Bold",
+            fontFamily: "Poppins_400Regular",
             textAlign: "left",
             paddingVertical: 15,
             paddingHorizontal: 10,
-            backgroundColor: theme.menu,
-            borderRadius: 2,
-            shadowColor: theme.shadow,
-            shadowOffset: {
-              width: 0,
-              height: 2,
-            },
-            width: "100%",
-            shadowOpacity: 0.25,
-            shadowRadius: 3.85,
           }}
         >
-          In soon Login
+          Sair da conta
         </Text>
-      </Pressable>
-      <Pressable
-        style={{
-          width: "100%",
-          marginBottom: 5,
-        }}
-      >
-        <Text
-          style={{
-            color: theme.shadow,
-            fontSize: 18,
-            fontFamily: "Poppins_700Bold",
-            textAlign: "left",
-            paddingVertical: 15,
-            paddingHorizontal: 10,
-            backgroundColor: theme.menu,
-            borderRadius: 2,
-            shadowColor: theme.shadow,
-            shadowOffset: {
-              width: 0,
-              height: 2,
-            },
-            width: "100%",
-            shadowOpacity: 0.25,
-            shadowRadius: 3.85,
-          }}
-        >
-          In soon Logout
-        </Text>
-      </Pressable>
-      <Pressable
-        style={{
-          width: "100%",
-          marginBottom: 5,
-        }}
-      >
-        <Text
-          style={{
-            color: theme.shadow,
-            fontSize: 18,
-            fontFamily: "Poppins_700Bold",
-            textAlign: "left",
-            paddingVertical: 15,
-            paddingHorizontal: 10,
-            backgroundColor: theme.menu,
-            borderRadius: 2,
-            shadowColor: theme.shadow,
-            shadowOffset: {
-              width: 0,
-              height: 2,
-            },
-            width: "100%",
-            shadowOpacity: 0.25,
-            shadowRadius: 3.85,
-          }}
-        >
-          In soon Create Account
-        </Text>
-      </Pressable>
-      <Pressable
-        style={{
-          width: "100%",
-          marginBottom: 5,
-        }}
-      >
-        <Text
-          style={{
-            color: theme.shadow,
-            fontSize: 18,
-            fontFamily: "Poppins_700Bold",
-            textAlign: "left",
-            paddingVertical: 15,
-            paddingHorizontal: 10,
-            backgroundColor: theme.menu,
-            borderRadius: 2,
-            shadowColor: theme.shadow,
-            shadowOffset: {
-              width: 0,
-              height: 2,
-            },
-            width: "100%",
-            shadowOpacity: 0.25,
-            shadowRadius: 3.85,
-          }}
-        >
-          In soon Delete Account
-        </Text>
-      </Pressable>
-      <Pressable
-        style={{
-          width: "100%",
-          marginBottom: 5,
-        }}
-      >
-        <Text
-          style={{
-            color: theme.shadow,
-            fontSize: 18,
-            fontFamily: "Poppins_700Bold",
-            textAlign: "left",
-            paddingVertical: 15,
-            paddingHorizontal: 10,
-            backgroundColor: theme.menu,
-            borderRadius: 2,
-            shadowColor: theme.shadow,
-            shadowOffset: {
-              width: 0,
-              height: 2,
-            },
-            width: "100%",
-            shadowOpacity: 0.25,
-            shadowRadius: 3.85,
-          }}
-        >
-          In soon Version
-        </Text>
-      </Pressable>
-      <Pressable
-        style={{
-          width: "100%",
-          marginBottom: 5,
-        }}
-      >
-        <Text
-          style={{
-            color: theme.shadow,
-            fontSize: 18,
-            fontFamily: "Poppins_700Bold",
-            textAlign: "left",
-            paddingVertical: 15,
-            paddingHorizontal: 10,
-            backgroundColor: theme.menu,
-            borderRadius: 2,
-            shadowColor: theme.shadow,
-            shadowOffset: {
-              width: 0,
-              height: 2,
-            },
-            width: "100%",
-            shadowOpacity: 0.25,
-            shadowRadius: 3.85,
-          }}
-        >
-          In soon Help
-        </Text>
-      </Pressable>
+      </Animatable.View>
     </ScrollView>
   );
 }

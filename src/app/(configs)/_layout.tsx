@@ -56,6 +56,91 @@ export default function LayoutList() {
           },
         }}
       />
+      <Stack.Screen
+        name="about"
+        options={{
+          headerShown: true,
+          title: "Sobre",
+          headerTitleAlign: "center",
+          headerTintColor: theme.title,
+          headerStyle: {
+            backgroundColor: theme.background,
+          },
+        }}
+      />
+      <Stack.Screen
+        name="help"
+        options={{
+          headerShown: true,
+          title: "Ajuda",
+          headerTitleAlign: "center",
+          headerTintColor: theme.title,
+          headerStyle: {
+            backgroundColor: theme.background,
+          },
+        }}
+      />
+      <Stack.Screen
+        name="version"
+        options={{
+          headerShown: true,
+          title: "Versão",
+          headerTitleAlign: "center",
+          headerTintColor: theme.title,
+          headerStyle: {
+            backgroundColor: theme.background,
+          },
+        }}
+      />
+      <Stack.Screen
+        name="notifications"
+        options={{
+          headerShown: true,
+          title: "Notificações",
+          headerTitleAlign: "center",
+          headerTintColor: theme.title,
+          headerStyle: {
+            backgroundColor: theme.background,
+          },
+        }}
+      />
+
+      <Stack.Screen
+        name="delete"
+        options={{
+          headerShown: true,
+          title: "Deletar conta",
+          headerTitleAlign: "center",
+          headerTintColor: theme.title,
+          headerStyle: {
+            backgroundColor: theme.background,
+          },
+        }}
+      />
+      <Stack.Screen
+        name="register"
+        options={{
+          headerShown: true,
+          title: "Criar conta",
+          headerTitleAlign: "center",
+          headerTintColor: theme.title,
+          headerStyle: {
+            backgroundColor: theme.background,
+          },
+        }}
+      />
+      <Stack.Screen
+        name="login"
+        options={{
+          headerShown: true,
+          title: "Login",
+          headerTitleAlign: "center",
+          headerTintColor: theme.title,
+          headerStyle: {
+            backgroundColor: theme.background,
+          },
+        }}
+      />
     </Stack>
   );
 }

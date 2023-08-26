@@ -83,7 +83,7 @@ export const colorTheme: ThemeColor[] = [
     shadow: "#382a36",
     title: "#bd93f9",
     buttons: "#44475a",
-    menu: "#6272a4",
+    menu: "#44475a",
     statusbar: "#44475a",
   },
   {

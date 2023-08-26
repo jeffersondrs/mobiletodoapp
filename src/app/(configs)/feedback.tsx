@@ -43,7 +43,6 @@ export default function Feedback() {
           textAlign: "center",
           borderWidth: 1,
           borderColor: theme.title,
-          borderRadius: 10,
           padding: 15,
         }}
       >
@@ -57,7 +56,7 @@ export default function Feedback() {
             width: 300,
             borderColor: theme.title,
             borderWidth: 1,
-            borderRadius: 10,
+            borderRadius: 5,
             padding: 10,
             color: theme.title,
             textAlignVertical: "top",
@@ -78,7 +77,7 @@ export default function Feedback() {
             borderWidth: 1,
             borderColor: theme.title,
             padding: 10,
-            borderRadius: 10,
+            borderRadius: 5,
             minWidth: 300,
             marginTop: 10,
             zIndex: -1,
