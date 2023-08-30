@@ -5,21 +5,33 @@ import { textReducer } from "./textSlice";
 import { listReducer } from "./listSlice";
 import { themeColorApp } from "./themeColorSlice";
 
-const persistConfig = {
-  key: "root",
+const textPersistConfig = {
+  key: "text",
   storage: AsyncStorage,
 };
 
-export const persistedReducer = persistReducer(persistConfig, textReducer);
-export const persistedListReducer = persistReducer(persistConfig, listReducer);
+const listPersistConfig = {
+  key: "list",
+  storage: AsyncStorage,
+};
+
+const themeColorPersistConfig = {
+  key: "themeColor",
+  storage: AsyncStorage,
+};
+
+
+export const persistedTextReducer = persistReducer(textPersistConfig, textReducer);
+export const persistedListReducer = persistReducer(listPersistConfig, listReducer);
 export const persistedThemeColorReducer = persistReducer(
-  persistConfig,
+  themeColorPersistConfig,
   themeColorApp
 );
 
+
 export const store = configureStore({
   reducer: {
-    text: persistedReducer,
+    text: persistedTextReducer,
     list: persistedListReducer,
     themeColor: persistedThemeColorReducer,
   },
@@ -28,6 +40,7 @@ export const store = configureStore({
       serializableCheck: false,
     }),
 });
+
 
 export const persistor = persistStore(store);
 
